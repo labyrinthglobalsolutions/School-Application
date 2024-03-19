@@ -1,0 +1,97 @@
+.nav-bar-main-container {
+  display: flex;
+  box-shadow: 0 10px 10px -15px #111;
+}
+
+.website-logo {
+  width: 160px;
+  margin-left: 70px;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-self: flex-end;
+  list-style-type: none;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.logout-desktop-btn {
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 14px;
+  color: #ffffff;
+  background-color: #1f2d3d;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  padding: 5px 20px 5px 20px;
+}
+
+.nav-bar-text-container {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5%;
+}
+
+.nav-bar-links-container {
+  display: flex;
+  gap: 7%;
+  width: 42%;
+}
+
+.nav-item-link {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 700;
+  color: black;
+}
+
+.nav-item-link:hover {
+  text-decoration: none;
+  color: #1d57ea;
+}
+.nav-bar-button-container {
+  display: flex;
+  gap: 10px;
+}
+
+@media screen and (max-width: 990px) {
+  .nav-bar-text-container {
+    margin-left: 73px;
+    display: block;
+    gap: 0%;
+  }
+  .nav-bar-button-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .logout-desktop-btn {
+    font-family: "Roboto";
+    font-weight: 600;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #1f2d3d;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+    padding: 5px 20px 5px 20px;
+    width: 170px;
+  }
+  .nav-item-link {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    color: black;
+    margin-bottom: 10px;
+  }
+
+  .nav-item-link:hover {
+    text-decoration: none;
+    color: #1d57ea;
+  }
+}

@@ -1,0 +1,27 @@
+.update-emp-bootstraplabel {
+  width: 100%;
+  text-align: left;
+  font-weight: "bold";
+}
+
+.update-emp-heading {
+  font-family: "Roboto";
+  font-weight: "bold";
+  color: #293b51;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.update-emp-formContainer {
+  padding: 10px;
+  width: 98%;
+}
+
+.update-emp-totalContainer {
+  font-family: "Roboto";
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}

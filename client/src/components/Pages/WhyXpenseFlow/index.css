@@ -1,0 +1,264 @@
+.about-first-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-heading {
+  color: #000;
+  font-weight: bold;
+  font-size: 80px;
+  text-align: center;
+  margin: 0;
+}
+
+.about-heading-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 15px;
+}
+
+.sub-heading {
+  color: #000;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 400;
+  min-width: 80%;
+  margin: 0px;
+}
+
+.about-button {
+  outline: none;
+  border-width: 0px;
+  height: 50px;
+  width: 180px;
+  background-color: #1f2d3d;
+  color: #fff;
+  font-weight: bold;
+  font-size: large;
+  padding: 5px;
+}
+
+/*----------------------------- Second container CSS ---------------------------- */
+
+.about-second-container {
+  height: max-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.about-promise-container {
+  border: 4px #000 solid;
+  height: max-content;
+  width: 75%;
+  padding:2%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 35px;
+}
+
+.promise-main-heading {
+  color: #000;
+  font-weight: bold;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.promise-name {
+  color: #000;
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+.promise-container {
+  display: flex;
+  width: 90%;
+  margin-left: 30px;
+  margin-bottom: 20px;
+}
+.promise-checked {
+  color: rgb(45, 237, 90);
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+  margin-top: 5px;
+}
+
+.promise-description {
+  font-size: 18px;
+  color: #000;
+  font-weight: 100;
+  width: 80%;
+}
+
+/* ---------------------------- Third container CSS -------------------------*/
+
+.about-third-container {
+  height: max-content;
+  display: flex;
+  justify-content: center;
+}
+
+.about-challenge-container {
+  width: 90%;
+  margin-bottom: 35px;
+}
+
+.about-challenge-heading-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+
+.about-challenge-heading {
+  margin: 0;
+  font-size: 50px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.about-challenge-paragraph {
+  font-size: 22px;
+  text-align: center;
+  width: 90%;
+  margin-bottom: 30px;
+}
+.about-challenge-icons-container {
+  display: flex;
+  gap: 10px;
+}
+
+.about-challenge-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+}
+
+.about-challenge-icon {
+  color: #1b3569;
+  height: 100px;
+  width: 100px;
+}
+
+.about-challenge-icon-heading {
+  font-size: 36px;
+  font-weight: bold;
+  color: #000;
+  margin: 0;
+  margin-top: 17px;
+}
+
+.about-challenge-icon-para {
+  font-size: 22px;
+  font-weight: 100;
+  color: #000;
+  margin: 0;
+}
+
+@media screen and (max-width: 560px) {
+  .about-challenge-icons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .about-challenge-card {
+    width: 90%;
+  }
+  .about-challenge-icon-heading {
+    font-size: 22px;
+  }
+
+  .about-challenge-icon-para {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+.about-first-container {
+  height: max-content;
+  padding: 40px;
+  }
+@media screen and (max-width: 768px) {
+  .about-first-container {
+    height: max-content;
+    }
+  .main-heading {
+    font-size: 42px;
+  }
+
+  .sub-heading {
+    font-size: 12px;
+    width: 90%;
+  }
+  .about-heading-container {
+    width: 95%;
+  }
+
+  .about-promise-container {
+    width: 100%;
+  }
+  .promise-main-heading {
+    font-size: 35px;
+  }
+  .promise-name {
+    font-size: 28px;
+  }
+  .promise-description {
+    font-size: 16px;
+  }
+  .about-challenge-icons-container {
+    display: flex;
+
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .about-challenge-card {
+    width: 45%;
+    margin: 10px;
+  }
+  .about-challenge-heading {
+    font-size: 40px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1400px) {
+  .main-heading {
+    font-size: 60px;
+  }
+
+  .sub-heading {
+    font-size: 20px;
+    width: 90%;
+  }
+  .about-heading-container {
+    width: 60%;
+  }
+  .about-first-container {
+   height: max-content;
+   padding-bottom: 40px;
+  }
+  .promise-main-heading {
+    font-size: 40px;
+  }
+  .promise-name {
+    font-size: 32px;
+  }
+  .about-promise-container {
+    width: 90%;
+  }
+}

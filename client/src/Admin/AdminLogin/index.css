@@ -1,0 +1,157 @@
+.admin-login-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 90vh;
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+}
+.admin-login-form-main-container {
+  width: 90%;
+  background-color: white;
+  border-radius: 2%;
+  display: flex;
+  justify-content: space-between;
+}
+.admin-login-form-bg-container {
+  width: 35%;
+  margin: 70px;
+  padding: 30px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 20px 20px 60px #00000041, inset -20px -20px 60px #ffffff40;
+  background-color: #fff;
+}
+.admin-login-image-container {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin-login-image {
+  width: 70%;
+}
+.admin-login-form-heading-container {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+.singin-form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-login-logo {
+  width: 55%;
+}
+.admin-login-first-heading {
+  font-size: 24px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.form-logo-container {
+  display: flex;
+  justify-content: center;
+  margin: 2%;
+}
+
+.admin-login-form-group-container {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-login-form-label-text {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.admin-login-input-text {
+  background-color: #f2f2f2;
+  border: none;
+  border-radius: 7px;
+  font-size: 16px;
+  outline: none;
+  padding: 8px;
+  width: 100%;
+}
+
+.admin-login-form-button {
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 7px 20px;
+  transition: background-color 0.3s;
+  width: 100%;
+  background-color: #1d56c7;
+  color: #fff;
+}
+
+.admin-login-account {
+  cursor: pointer;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: black;
+}
+
+.admin-login-account:hover {
+  color: rgb(26, 112, 210);
+}
+
+.login-image-container {
+  width: 50%;
+}
+.Login-image {
+  width: 100%;
+}
+
+.admin-login-dont-have-account {
+  font-size: 12px;
+  font-weight: 600;
+  color: black;
+  cursor: pointer;
+  text-align: center;
+}
+.admin-login-dont-have-account:hover {
+  color: rgb(26, 112, 210);
+}
+
+@media screen and (max-width: 768px) {
+  .admin-login-form-bg-container {
+    width: 90%;
+    margin: 10px;
+    padding: 30px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: none;
+    background-color: #fff;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 830px) {
+  .admin-login-form-bg-container {
+    width: 70%;
+    height: max-content;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .admin-login-form-main-container {
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .admin-login-image-container {
+    display: none;
+  }
+}

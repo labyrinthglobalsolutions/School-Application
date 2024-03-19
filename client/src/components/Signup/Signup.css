@@ -1,0 +1,86 @@
+.customer-signin-div-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.customer-signin-form-main-container {
+  width: 30%;
+  margin: 70px;
+  padding: 10px;
+  border: 2px solid #4b4f58;
+  border-radius: 5px;
+}
+.customer-signin-form-heading-container {
+  font-size: 32px;
+  font-weight: 600;
+  color: #212d45;
+}
+.customer-singin-form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.customer-signin-form-group-container {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-singnin-form-lable-container {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.customer-signin-input-container {
+  width: 90%;
+  padding: 8px;
+  font-size: 16px;
+  border: 2px solid#212d45;
+  border-radius: 7px;
+}
+
+.customer-signin-form-button-container {
+  background-color: #ffc03d;
+  color: #212d45;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+.customer-signin-form-button-container:hover {
+  border: 1px solid #212d45;
+  color: #212d45;
+  background-color: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+.error-message {
+  font-size: 12px;
+  color: #ff0000;
+}
+@media (min-width: 512px) and (max-width: 768px) {
+  .customer-signin-form-main-container {
+    width: 60%;
+  }
+}
+@media (max-width: 512px) {
+  .customer-signin-form-main-container {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .customer-signin-form-heading-container {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .customer-signin-form-main-container {
+    width: 40%;
+  }
+}

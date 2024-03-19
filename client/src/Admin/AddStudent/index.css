@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap");
+
+.bootstraplabel {
+  width: 100%;
+  text-align: left;
+  font-weight: "bold";
+}
+
+.add-project-heading {
+  font-family: "Roboto";
+  font-weight: "bold";
+  color: #293b51;
+  text-align: start;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+.add-project-formContainer {
+  padding: 10px;
+  width: 90%;
+}
+
+.add-project-totalContainer {
+  font-family: "Roboto";
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 80vh;
+  width: 100%;
+}
+.add-project-input {
+  border: 1px solid black !important;
+}
+
+.add-project-button {
+  width: 30%;
+  background-color: #293b51;
+  color: white;
+  padding: 8px 20px;
+  border: 3px #293b51 solid;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+.add-project-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

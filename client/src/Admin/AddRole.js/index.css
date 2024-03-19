@@ -1,0 +1,52 @@
+.add-role-main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.add-role-form-container {
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-role-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #050505;
+}
+
+.add-role-input {
+  padding: 10px;
+  border: 2px solid black;
+  font-size: 12px;
+  font-weight: bold;
+  height: 40px;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.add-role-button {
+  width: 100%;
+  background-color: transparent;
+  color: black;
+  padding: 8px 20px;
+  border: 3px #4f46e5 solid;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+}
+
+.add-role-button:hover {
+  border: 3px #4f46e5 solid;
+  color: white;
+  background-color: #4f46e5;
+  transition: 0.3s ease-in-out;
+}

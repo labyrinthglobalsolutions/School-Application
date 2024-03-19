@@ -1,0 +1,37 @@
+
+.about-us-main-container{
+    margin:5%;
+}
+.about-us-main-heading{
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+}.about-us-main-text{
+    text-align: center;
+    font-size: 18px;
+}
+.about-us-container1{
+    margin-top: 35px;
+    text-align: center;
+}
+.about-us-container1-heading{
+    font-size: 32px;
+    font-weight: 600;
+    color: #000;
+}
+.about-us-container1-text{
+    font-size: 18px;
+}
+.about-us-container2{
+    margin-top: 35px;
+}
+
+.about-us-container2-heading{
+    text-align: center;
+}
+.about-us-container2-heading1{
+    font-size: 26px;
+}
+.about-us-container2-text2{
+    font-size: 16px;
+}

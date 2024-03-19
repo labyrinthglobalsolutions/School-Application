@@ -1,0 +1,25 @@
+.super-sidebar-icons-container {
+    margin-top: 26px;
+    color: #fff;
+  }
+  
+  .super-sidebar-container {
+    opacity: 1;
+    color: #fff;
+  }
+  .super-hamburger-icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 10px 10px 10px 0px;
+    cursor: pointer;
+  }
+  
+  .super-menu-active {
+    width: 90% !important;
+    margin-left: 5px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    color: #004e89;
+  }
+  

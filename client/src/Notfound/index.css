@@ -1,0 +1,18 @@
+.not-found-text {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+.not-found-image {
+  width: 400px;
+  height: 300px;
+}
