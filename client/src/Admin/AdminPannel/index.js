@@ -26,6 +26,7 @@ import EditClassTeacher from "../ClassTeachersList/EditClassTeacher";
 import Timetable from "../ClassTimeTable";
 import { AddTask } from "@mui/icons-material";
 import TimetableForm from "../ClassTimeTable/AddClassTimeTable";
+import ClassesList from "../ClassesList/ClassesList";
 
 function AdminPannel() {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -177,6 +178,13 @@ function AdminPannel() {
           </MenuItem>
           <MenuItem
             icon={<PiUserCirclePlusBold />}
+            onClick={() => setActive("classList")}
+            className={active === "classList" ? "menu-active" : ""}
+          >
+            Class List
+          </MenuItem>
+          <MenuItem
+            icon={<PiUserCirclePlusBold />}
             onClick={() => setActive("ParentsList")}
             className={active === "ParentsList" ? "menu-active" : ""}
           >
@@ -251,6 +259,7 @@ function AdminPannel() {
         {active === "AddParent" && <AddParent />}
         {active === "TimeTable" && <Timetable changeSetActive={setActive} />}\
         {active === "AddTimeTable" && <TimetableForm />}
+        {active === "classList" && <ClassesList />}
       </div>
     </div>
   );

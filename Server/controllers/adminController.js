@@ -10,6 +10,7 @@ import Parent from "../models/parentModel.js";
 import Timetable from "../models/timeTable.js";
 import { Admin } from "../models/adminModel.js";
 import jwt from "jsonwebtoken";
+import { Classes } from "../models/classesModel.js";
 
 export const AdminLogin = async (req, res) => {
   try {
@@ -784,3 +785,46 @@ export const getTimetable = CatchAsyncError(async (req, res) => {
     res.status(500).json({ message: "Failed to fetch timetable" });
   }
 });
+
+export const AddClass = CatchAsyncError(async (req, res) => {
+  try {
+    const { className, sectionName } = req.body;
+    console.log(className, sectionName, req.body);
+
+    const existingClass = await Classes.findOne({
+      className: className.toLowerCase(),
+    });
+
+    if (existingClass) {
+      return res.status(400).json({ message: "Class already exists" });
+    }
+
+    const existingSection = await Classes.findOne({
+      sectionName: sectionName.toLowerCase(),
+    });
+
+    if (existingSection) {
+      return res.status(400).json({ message: "Section already exists" });
+    }
+
+    const newClass = new Classes({
+      className: className.toLowerCase(),
+      sectionName: sectionName.toLowerCase(),
+    });
+    await newClass.save();
+    res.status(201).json({ message: "Class added successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+export const getClasses = async (req, res) => {
+  try {
+    const classes = await Classes.find();
+
+    res.status(200).json({ classes });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
