@@ -16,6 +16,7 @@ import "./index.css";
 // import OrganizationViewDetail from "../OrganizationViewDetail";
 import { useNavigate } from "react-router-dom";
 import AttendancePage from "../Attendence";
+import HomeworkPage from "../Homework";
 // import DisableOrgList from "../DisabledOrgList/DisableOrgList";
 // import SuperDashboard from "../dashboard/dashboard";
 // import OrganizationsPending from "../OrganizationsPending/OrganizationsPending";
@@ -116,10 +117,8 @@ function TeacherPanel() {
           </MenuItem>
           <MenuItem
             icon={<MdDomainDisabled />}
-            onClick={() => setActive("organizationsPending")}
-            className={
-              active === "organizationsPending" ? "super-menu-active" : ""
-            }
+            onClick={() => setActive("HomeworkPage")}
+            className={active === "HomeworkPage" ? "super-menu-active" : ""}
           >
             Home Work
           </MenuItem>
@@ -162,6 +161,7 @@ function TeacherPanel() {
           />
         )} */}
         {active === "AttendancePage" && <AttendancePage />}
+        {active === "HomeworkPage" && <HomeworkPage />}
       </div>
     </div>
   );
