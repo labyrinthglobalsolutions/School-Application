@@ -11,24 +11,26 @@ const MarksPage = () => {
     String(new Date().getMonth() + 1).padStart(2, "0")
   );
   const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+  const [examType, setExamType] = useState("Midterm"); // Default exam type
 
   const fetchStudentsWithMarks = async () => {
     try {
+      // Fetch studentsWithMarks from backend
       const response = await fetch(
-        `${process.env.REACT_APP_FETCH_URL}/getStudentsWithMarks?year=${selectedYear}&month=${selectedMonth}&day=${selectedDate}`
+        `${process.env.REACT_APP_FETCH_URL}/getStudentsWithMarks`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
       setStudentsWithMarks(data.studentsWithMarks);
-      const initialMarksData = data.studentsWithMarks.map((student) => ({
-        studentId: student.student._id,
-        marksObtained: student.marks ? student.marks.marksObtained : "",
-        totalMarks: student.marks ? student.marks.totalMarks : "",
-        added: false, // Flag to track if marks are added
-      }));
 
+      // Initialize marksData with the same length as studentsWithMarks
+      const initialMarksData = data.studentsWithMarks.map(() => ({
+        marksObtained: "",
+        totalMarks: "",
+        added: false,
+      }));
       setMarksData(initialMarksData);
     } catch (error) {
       console.error("Error fetching students with marks:", error);
@@ -36,20 +38,10 @@ const MarksPage = () => {
   };
 
   useEffect(() => {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
-    const date = String(currentDate.getDate()).padStart(2, "0");
+    // Fetch students with marks and initialize marksData
 
-    setSelectedDate(date);
-    setSelectedMonth(month);
-    setSelectedYear(String(year));
     fetchStudentsWithMarks();
   }, []);
-
-  useEffect(() => {
-    fetchStudentsWithMarks();
-  }, [selectedYear, selectedMonth, selectedDate]);
 
   const handleInputChange = (index, field, value) => {
     const updatedMarksData = [...marksData];
@@ -64,8 +56,10 @@ const MarksPage = () => {
         studentId: studentId,
         marksObtained: marksData[index].marksObtained,
         totalMarks: marksData[index].totalMarks,
+        examType: examType, // Include examType in the data
       };
 
+      // Send data to backend to add marks
       const response = await fetch(
         `${process.env.REACT_APP_FETCH_URL}/postMarks`,
         {
@@ -96,143 +90,72 @@ const MarksPage = () => {
     }
   };
 
-  const handleAddMarksForAll = async () => {
-    try {
-      const data = {
-        marksObtained: marksData[0].marksObtained,
-        totalMarks: marksData[0].totalMarks,
-      };
-
-      await Promise.all(
-        studentsWithMarks.map(async (student) => {
-          const response = await fetch(
-            `${process.env.REACT_APP_FETCH_URL}/postMarks`,
-            {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify({
-                ...data,
-                studentId: student.student._id,
-              }),
-            }
-          );
-
-          if (!response.ok) {
-            throw new Error(
-              `Failed to add marks for ${student.student.fullName}`
-            );
-          }
-        })
-      );
-
-      Toast.fire({
-        icon: "success",
-        title: "Marks added for all students",
-      });
-      fetchStudentsWithMarks();
-    } catch (error) {
-      console.error("Error adding marks:", error);
-      Toast.fire({
-        icon: "error",
-        title: "Failed to add marks",
-      });
-    }
-  };
-
-  const handleDateChange = (e) => {
-    setSelectedDate(e.target.value);
-  };
-
-  const handleMonthChange = (e) => {
-    setSelectedMonth(e.target.value);
-  };
-
-  const handleYearChange = (e) => {
-    setSelectedYear(e.target.value);
-  };
-
   return (
     <div
       style={{
         display: "grid",
         gridTemplateColumns: "auto 1fr",
         gap: "20px",
+        padding: "20px",
       }}
     >
       <div>
-        <h2>Add Marks</h2>
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-            alignItems: "center",
-          }}
+        <h2 style={{ marginBottom: "20px" }}>Add Marks</h2>
+        <select
+          value={examType}
+          onChange={(e) => setExamType(e.target.value)}
+          style={{ marginBottom: "20px" }}
         >
-          <select value={selectedDate} onChange={handleDateChange}>
-            {[...Array(31).keys()].map((day) => (
-              <option key={day + 1} value={String(day + 1).padStart(2, "0")}>
-                {String(day + 1).padStart(2, "0")}
-              </option>
-            ))}
-          </select>
-          <select value={selectedMonth} onChange={handleMonthChange}>
-            {[...Array(12).keys()].map((month) => (
-              <option
-                key={month + 1}
-                value={String(month + 1).padStart(2, "0")}
-              >
-                {String(month + 1).padStart(2, "0")}
-              </option>
-            ))}
-          </select>
-          <select value={selectedYear} onChange={handleYearChange}>
-            {[...Array(10).keys()].map((_, index) => {
-              const year = new Date().getFullYear() + index;
-              return (
-                <option key={year} value={year}>
-                  {year}
-                </option>
-              );
-            })}
-          </select>
-        </div>
+          <option value="Midterm">Midterm</option>
+          <option value="Final">Final</option>
+          <option value="Quiz">Quiz</option>
+          {/* Add more options as needed */}
+        </select>
         {studentsWithMarks.map((student, index) => (
           <div
             style={{
               display: "flex",
               gap: "10px",
               alignItems: "center",
+              marginBottom: "10px",
             }}
-            key={student.student._id}
+            key={student._id}
           >
-            <h3>{student.student.fullName}</h3>
+            <h3 style={{ width: "250px", marginRight: "10px" }}>
+              {student.fullName}
+            </h3>
             <input
               type="number"
-              value={marksData[index].marksObtained}
+              value={marksData[index]?.marksObtained || ""}
               onChange={(e) =>
                 handleInputChange(index, "marksObtained", e.target.value)
               }
               placeholder="Marks Obtained"
+              style={{ marginRight: "10px" }}
             />
             <input
               type="number"
-              value={marksData[index].totalMarks}
+              value={marksData[index]?.totalMarks || ""}
               onChange={(e) =>
                 handleInputChange(index, "totalMarks", e.target.value)
               }
               placeholder="Total Marks"
+              style={{ marginRight: "10px" }}
             />
             <button
               onClick={() => handleAddMarks(index)}
-              disabled={marksData[index].added}
+              disabled={marksData[index]?.added}
+              style={{
+                padding: "5px 10px",
+                border: "none",
+                cursor: "pointer",
+                borderRadius: "5px",
+              }}
             >
-              {marksData[index].added ? "Marks Added" : "Add Marks"}
+              {marksData[index]?.added ? "Marks Added" : "Add Marks"}
             </button>
           </div>
         ))}
-        <button onClick={handleAddMarksForAll}>Add Same Marks for All</button>
       </div>
     </div>
   );

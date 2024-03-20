@@ -5,6 +5,7 @@ import ClassTeacher from "../models/classTeacher.js";
 import Student from "../models/studentModel.js";
 import Attendance from "../models/attendenceModel.js";
 import Homework from "../models/homeworkModel.js";
+import Mark from "../models/markModel.js";
 
 export const classTeacherLogin = CatchAsyncError(async (req, res) => {
   const { email, password } = req.body;
@@ -199,4 +200,52 @@ export const postHomework = async (req, res) => {
   }
 };
 
-// Controller function for GET request to get the list of students with assigned homework
+export const getStudentsWithMarks = async (req, res) => {
+  try {
+    // Fetch all students
+    const allStudents = await Student.find({}, "_id fullName");
+
+    // Fetch marks for all students
+    const marksPromises = allStudents.map(async (student) => {
+      const marks = await Mark.findOne({ student: student._id })
+        .select("marksObtained totalMarks")
+        .lean();
+      return { ...student.toObject(), studentId: student._id, marks };
+    });
+
+    // Wait for all marks to be fetched
+    const studentsWithMarks = await Promise.all(marksPromises);
+    console.log(studentsWithMarks, "studentsWithMarks");
+    // Send the response with the fetched data
+    res.status(200).json({ studentsWithMarks });
+  } catch (error) {
+    console.error("Error fetching students with marks:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const postMarks = async (req, res) => {
+  try {
+    const {
+      studentId,
+      subject,
+      marksObtained,
+      examType,
+      class: studentClass,
+      section,
+    } = req.body;
+    const mark = new Mark({
+      student: studentId,
+      subject,
+      marksObtained,
+      examType,
+      class: studentClass,
+      section,
+    });
+    await mark.save();
+    res.status(201).json({ message: "Marks added successfully" });
+  } catch (error) {
+    console.error("Error adding marks:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};

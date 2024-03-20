@@ -165,6 +165,7 @@ const HomeworkPage = () => {
         display: "grid",
         gridTemplateColumns: "auto 1fr",
         gap: "20px",
+        padding: "20px",
       }}
     >
       <div>
@@ -213,7 +214,9 @@ const HomeworkPage = () => {
             }}
             key={student.student._id}
           >
-            <h3>{student.student.fullName}</h3>
+            <h3 style={{ width: "250px", marginRight: "10px" }}>
+              {student.student.fullName}
+            </h3>
             {student.homework ? (
               <>
                 <input
@@ -255,6 +258,12 @@ const HomeworkPage = () => {
                   placeholder="Due Date"
                 />
                 <button
+                  style={{
+                    padding: "5px 10px",
+                    border: "none",
+                    cursor: "pointer",
+                    borderRadius: "5px",
+                  }}
                   onClick={() => handleAddHomework(index)}
                   disabled={homeworkData[index].added}
                 >
@@ -304,6 +313,12 @@ const HomeworkPage = () => {
                   placeholder="Due Date"
                 />
                 <button
+                  style={{
+                    padding: "5px 10px",
+                    border: "none",
+                    cursor: "pointer",
+                    borderRadius: "5px",
+                  }}
                   onClick={() => handleAddHomework(index)}
                   disabled={homeworkData[index].added}
                 >
@@ -315,7 +330,15 @@ const HomeworkPage = () => {
             )}
           </div>
         ))}
-        <button onClick={handleAddHomeworkForAll}>
+        <button
+          style={{
+            padding: "5px 10px",
+            border: "none",
+            cursor: "pointer",
+            borderRadius: "5px",
+          }}
+          onClick={handleAddHomeworkForAll}
+        >
           Add Same Homework for All
         </button>
       </div>

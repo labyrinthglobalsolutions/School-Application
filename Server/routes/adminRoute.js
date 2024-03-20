@@ -84,6 +84,6 @@ adminRouter.put("/deleteParent/:id", deleteParent);
 adminRouter.post("/addtimetable", createOrUpdateTimetable);
 adminRouter.get("/gettimetable", getTimetable);
 
-// Add Subject 
+// Add Subject
 
-adminRouter.post("/addSubject", AddSubject)
+adminRouter.post("/addSubject", AddSubject);

@@ -804,14 +804,31 @@ export const AddSubject = CatchAsyncError(async (req, res) => {
 
     const savedSubject = await subjectAdd.save();
 
-    res
-      .status(201)
-      .json({
-        message: "Subject added successfully",
-        subjectAdd: savedSubject,
-      });
+    res.status(201).json({
+      message: "Subject added successfully",
+      subjectAdd: savedSubject,
+    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });
   }
 });
+
+export const getStudentsWithMarks = async (req, res) => {
+  try {
+    // Fetch all students with their marks
+    const studentsWithMarks = await Student.find({})
+      .populate({
+        path: "marks",
+        select: "marksObtained totalMarks", // Select only required fields from the Marks model
+      })
+      .select("fullName marks"); // Select only required fields from the Student model
+
+    // Send the response with the fetched data
+    res.status(200).json({ studentsWithMarks });
+  } catch (error) {
+    // Handle errors
+    console.error("Error fetching students with marks:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
