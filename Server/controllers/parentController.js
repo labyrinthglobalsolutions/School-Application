@@ -36,3 +36,31 @@ export const getStudentsByGuardianEmail = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+export const getStudentHomeworkForToday = CatchAsyncError(async (req, res) => {
+  try {
+    // Extract student ID from request parameters
+    const { studentId } = req.params;
+    const { year, month, day } = req.body;
+
+    const dateFilter = {};
+
+    if (year && month && day) {
+      const startDate = new Date(year, month - 1, day);
+      startDate.setHours(0, 0, 0, 0); // Set time to start of day
+      const endDate = new Date(year, month - 1, day);
+      endDate.setHours(23, 59, 59, 999); // Set time to end of day
+      dateFilter.createdAt = { $gte: startDate, $lte: endDate };
+    }
+
+    // Query to find homework for the specified student updated today
+    const studentHomework = await Homework.find({
+      student: studentId,
+      ...dateFilter,
+    }).select("title description subject dueDate");
+    res.status(200).json({ studentHomework });
+  } catch (error) {
+    console.error("Error fetching student homework:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});

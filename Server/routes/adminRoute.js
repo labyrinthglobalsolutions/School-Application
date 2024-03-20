@@ -3,6 +3,7 @@ import {
   AddClass,
   AddParent,
   AddStudent,
+  AddSubject,
   AddTeacher,
   AdminLogin,
   UpdateStudentById,
@@ -84,6 +85,10 @@ adminRouter.put("/updateStatusOfParent/:id", updateStatusOfParent);
 adminRouter.put("/deleteParent/:id", deleteParent);
 adminRouter.post("/addtimetable", createOrUpdateTimetable);
 adminRouter.get("/gettimetable", getTimetable);
+
+// Add Subject
+
+adminRouter.post("/addSubject", AddSubject);
 
 adminRouter.post("/addClass", AddClass);
 

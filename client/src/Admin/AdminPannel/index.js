@@ -257,7 +257,7 @@ function AdminPannel() {
           <ParentsList changeSetActive={setActive} />
         )}
         {active === "AddParent" && <AddParent />}
-        {active === "TimeTable" && <Timetable changeSetActive={setActive} />}\
+        {active === "TimeTable" && <Timetable changeSetActive={setActive} />}
         {active === "AddTimeTable" && <TimetableForm />}
         {active === "classList" && <ClassesList />}
       </div>

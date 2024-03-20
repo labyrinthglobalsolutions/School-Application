@@ -10,6 +10,7 @@ import Parent from "../models/parentModel.js";
 import Timetable from "../models/timeTable.js";
 import { Admin } from "../models/adminModel.js";
 import jwt from "jsonwebtoken";
+import Subject from "../models/addSubjects.js";
 import { Classes } from "../models/classesModel.js";
 
 export const AdminLogin = async (req, res) => {
@@ -783,6 +784,34 @@ export const getTimetable = CatchAsyncError(async (req, res) => {
     res.json(timetable);
   } catch (error) {
     res.status(500).json({ message: "Failed to fetch timetable" });
+  }
+});
+
+export const AddSubject = CatchAsyncError(async (req, res) => {
+  try {
+    const { subject } = req.body;
+
+    const existingSubject = await Subject.findOne({
+      subject: subject.toLowerCase(),
+    });
+
+    if (existingSubject) {
+      return res.status(400).json({ message: "Subject already exists" });
+    }
+
+    const subjectAdd = new Subject({
+      subject: subject.toLowerCase(),
+    });
+
+    const savedSubject = await subjectAdd.save();
+
+    res.status(201).json({
+      message: "Subject added successfully",
+      subjectAdd: savedSubject,
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
