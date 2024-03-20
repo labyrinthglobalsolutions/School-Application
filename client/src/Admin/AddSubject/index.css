@@ -1,0 +1,19 @@
+.add-subject-main-container{
+    display:flex;
+    width:100%;
+    justify-content: center;
+}
+.add-subject-sub-container{
+    display:flex;
+    align-items: center;
+    gap:20px;
+    width:50%;
+    margin-top:40px;
+}
+.add-subject-input-field{
+    width:100%;
+    border:none;
+    padding:10px;
+    background-color: #f2f2f2;
+    border-radius:10px;
+}

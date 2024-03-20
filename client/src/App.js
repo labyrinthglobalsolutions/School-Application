@@ -35,6 +35,7 @@ import AddClassTeacher from "./Admin/ClassTeachersList/AddClassTeacher.js";
 import TimetableForm from "./Admin/ClassTimeTable/AddClassTimeTable.js";
 import TeacherPanel from "./Teacher/TeacherPanel/index.js";
 import ClassSelectionPage from "./Teacher/ClassSelectionPage/index.js";
+import AddSubject from "./Admin/AddSubject/index.js";
 function App() {
   const navigate = useNavigate();
   return (
@@ -90,6 +91,7 @@ function App() {
       <Route exact path="/login" element={<Login />} />
       <Route path="/verify" element={<Verify />} />
       <Route path="/signup" element={<Signup />} />
+      <Route path="/addsubject" element={<AddSubject />} />
       <Route
         path="*"
         element={

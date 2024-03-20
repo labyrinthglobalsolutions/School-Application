@@ -4,7 +4,7 @@
   align-items: center;
   background-color: #fff;
   width: 100%;
-  height: 64px;
+  height: 100px;
   color: white;
   padding: 1%;
   min-width: max-content;
@@ -22,8 +22,13 @@
 .user-navbar-organization-name-searchbar-main-container {
   display: flex;
   align-items: center;
-  gap: 20px;
-  justify-content: space-between;
+  justify-content: center;
+  width:100px;
+  height:100px;
+  
+}
+.product-image{
+  width:100%;
 }
 
 .user-navbar-organization-name-main-container {
@@ -74,7 +79,11 @@
   align-items: center;
   gap: 10px;
 }
-
+.employee-navbar-username-main-container{
+  display:flex;
+  align-items: center;
+  gap:10px;
+}
 /* .user-navbar-upgrade-btn-main-container{
     background-color: #eba51c;
     display: flex;
