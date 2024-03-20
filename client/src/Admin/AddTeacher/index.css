@@ -17,34 +17,35 @@
   text-align: start;
   margin-bottom: 10px;
 }
-.employee-add-formContainer {
+.teacher-add-formContainer {
   padding: 10px;
-  width: 98%;
+  width: 70%;
 }
 
-.employee-add-totalContainer {
+.teacher-add-totalContainer {
   font-family: "Roboto";
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
   padding: 40px 0px 0px 0px;
+  width: 100%;
 }
 
-.employee-add-input {
+.teacher-add-input {
   border: 1px solid black !important;
   border-radius: 5px;
   padding: 8px;
 }
 
-.employee-add-button-container {
+.teacher-add-button-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-.employee-add-button {
+.teacher-add-button {
   width: 30%;
   background-color: #293b51;
   color: white;
@@ -55,10 +56,11 @@
   font-size: 18px;
   transition: background-color 0.3s;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 768px) {
-  .employee-add-button {
+  .teacher-add-button {
     width: 70%;
     background-color: #293b51;
     color: white;

@@ -161,11 +161,13 @@ export default function FeeDetailsList({ getFeeDetailsId, addFeeDetails }) {
         <Loader />
       ) : (
         <>
-          <button onClick={addFee}>Add Fee</button>
+          <button onClick={addFee} className="global-add-button">
+            Add Fee
+          </button>
           {employees.length === 0 ? (
             <>
               <div className="projects-not-found-container">
-                <h1 className="not-found-text">No Employees Found </h1>
+                <h1 className="not-found-text">No Fees Found </h1>
                 <img
                   src={notfound}
                   alt="No Bills Found"

@@ -98,9 +98,14 @@ function AddClassTeacher() {
   };
 
   return (
-    <div className="add-class-teacher-container">
+    <div className="teacher-add-totalContainer">
       <h2>Add Class Teacher</h2>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={handleSubmit}
+        className="teacher-add-formContainer"
+      >
         <Form.Group controlId="classId">
           <Form.Label>Class</Form.Label>
           <Form.Control
@@ -163,7 +168,9 @@ function AddClassTeacher() {
             Please select a teacher.
           </Form.Control.Feedback>
         </Form.Group>
-        <Button type="submit">Submit</Button>
+        <button type="submit" className="global-add-button">
+          Submit
+        </button>
       </Form>
     </div>
   );

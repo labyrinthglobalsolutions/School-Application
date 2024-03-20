@@ -9,3 +9,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.global-add-button {
+  width: max-content;
+  background-color: #293b51;
+  color: white;
+  padding: 8px 20px;
+  border: 3px #293b51 solid;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+  margin: 10px;
+}

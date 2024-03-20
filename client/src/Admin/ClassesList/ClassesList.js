@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Toast from "../../components/utlis/toast";
+
+import "./ClassesList.css";
 
 const ClassesList = () => {
   const [isAdd, setAddClass] = useState(false);
@@ -7,6 +9,8 @@ const ClassesList = () => {
     className: "",
     sectionName: "",
   });
+
+  const [classes, setClasses] = useState([]);
 
   const addClass = async () => {
     try {
@@ -42,16 +46,40 @@ const ClassesList = () => {
     setClassName({ ...data, [name]: value });
   };
 
+  const getClasses = async () => {
+    const options = {
+      method: "GET",
+    };
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_FETCH_URL}/getClasses`,
+        options
+      );
+      const data = await response.json();
+      setClasses(data.classes);
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    getClasses();
+  }, []);
+
   return (
     <div>
       <div>
-        <button onClick={() => setAddClass(true)}>Add class</button>
+        <button
+          onClick={() => setAddClass(!isAdd)}
+          className="classes-add-button"
+        >
+          Add class
+        </button>
         {isAdd && (
-          <div>
+          <div className="classes-add-form-container">
             <input
               type="text"
               value={data.className}
               name="className"
+              className="classes-add-input"
               placeholder="Class Name"
               onChange={(event) => handleChange(event)}
             />
@@ -59,18 +87,29 @@ const ClassesList = () => {
               type="text"
               name="sectionName"
               value={data.sectionName}
+              className="classes-add-input"
               placeholder="section name"
               onChange={(event) => handleChange(event)}
             />
-            <button onClick={addClass}>Add</button>
+            <button onClick={addClass} className="classes-add-button">
+              Add
+            </button>
           </div>
         )}
       </div>
       <div>
         <h1>Classes</h1>
-        <div>
-          <p>ClassName: Venu</p>
-        </div>
+        {classes.map((el) => (
+          <div>
+            <p className="class-add-class-name">
+              ClassName: <span className="class-add-span">{el.className}</span>
+            </p>
+            <p className="class-add-class-name">
+              SectionName:
+              <span className="class-add-span"> {el.sectionName}</span>
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );

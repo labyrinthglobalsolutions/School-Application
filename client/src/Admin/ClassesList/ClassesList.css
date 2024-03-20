@@ -1,0 +1,40 @@
+.classes-add-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.classes-add-input {
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.classes-add-button {
+  width: max-content;
+  background-color: #293b51;
+  color: white;
+  padding: 8px 20px;
+  border: 3px #293b51 solid;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.class-add-class-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+}
+
+.class-add-span {
+  font-size: 14px;
+  font-weight: 500;
+  color: #293b51;
+}

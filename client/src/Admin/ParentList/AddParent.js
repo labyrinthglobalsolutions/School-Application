@@ -55,9 +55,9 @@ function AddParent() {
   };
 
   return (
-    <div className="container">
+    <div className="teacher-add-totalContainer">
       <h2>Add Parent</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className="teacher-add-formContainer">
         <Form.Group controlId="fullName">
           <Form.Label>Full Name</Form.Label>
           <Form.Control
@@ -115,9 +115,9 @@ function AddParent() {
 
         {error && <p className="text-danger">{error}</p>}
 
-        <Button type="submit" disabled={loading}>
+        <button type="submit" className="global-add-button" disabled={loading}>
           {loading ? "Adding..." : "Submit"}
-        </Button>
+        </button>
       </Form>
     </div>
   );
