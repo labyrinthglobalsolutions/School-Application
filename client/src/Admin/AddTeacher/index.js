@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import Select from "react-dropdown-select";
 import Toast from "../../components/utlis/toast";
+import "./index.css";
 
 function AddTeacher() {
   const [validated, setValidated] = useState(false);
@@ -96,22 +97,21 @@ function AddTeacher() {
                 value={teacherData.fullName}
                 onChange={change}
                 required
+                className="teacher-add-input"
               />
               <Form.Control.Feedback type="invalid">
                 Please provide a valid full name.
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="3" controlId="validationCustom02">
-              <label htmlFor="validationCustom02" className="bootstraplabel">
-                Joining Date
-              </label>
+            <Form.Group as={Col} md="6" controlId="validationCustom02">
+              <Form.Label>Joining Date</Form.Label>
               <Form.Control
                 type="date"
                 name="joinDate"
                 value={teacherData.joinDate}
                 onChange={change}
                 placeholder="Enter Date of Birth"
-                className="add-project-input"
+                className="teacher-add-input"
                 required
               />
               <Form.Control.Feedback type="invalid">
@@ -129,6 +129,7 @@ function AddTeacher() {
                 name="email"
                 value={teacherData.email}
                 onChange={change}
+                className="teacher-add-input"
                 required
               />
               <Form.Control.Feedback type="invalid">
@@ -142,6 +143,7 @@ function AddTeacher() {
                 name="password"
                 value={teacherData.password}
                 onChange={change}
+                className="teacher-add-input"
                 required
               />
               <Form.Control.Feedback type="invalid">
@@ -157,6 +159,7 @@ function AddTeacher() {
                 name="phoneNumber"
                 value={teacherData.phoneNumber}
                 onChange={change}
+                className="teacher-add-input"
                 required
               />
               <Form.Control.Feedback type="invalid">
@@ -170,6 +173,7 @@ function AddTeacher() {
                 name="address"
                 value={teacherData.address}
                 onChange={change}
+                className="teacher-add-input"
                 required
               />
               <Form.Control.Feedback type="invalid">
@@ -197,6 +201,7 @@ function AddTeacher() {
                   })
                 }
                 multi
+                className="teacher-add-input"
                 required
               />
               <Form.Control.Feedback type="invalid">
@@ -206,6 +211,7 @@ function AddTeacher() {
             <Form.Group as={Col} controlId="validationCustom08" md="6">
               <Form.Label>Classes Taught</Form.Label>
               <Select
+                className="teacher-add-input"
                 name="classes"
                 options={[
                   { value: "nursery", label: "Nursery" },

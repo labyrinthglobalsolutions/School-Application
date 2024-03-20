@@ -77,9 +77,14 @@ function AddFeeDetails() {
   };
 
   return (
-    <div className="add-fee-details-container">
+    <div className="teacher-add-totalContainer">
       <h2>Add Fee Details</h2>
-      <Form noValidate validated={validated} onSubmit={handleSubmit}>
+      <Form
+        noValidate
+        validated={validated}
+        onSubmit={handleSubmit}
+        className="teacher-add-formContainer"
+      >
         <Form.Group controlId="classId">
           <Form.Label>Class</Form.Label>
           <Form.Control
@@ -181,7 +186,11 @@ function AddFeeDetails() {
             Please provide other fees.
           </Form.Control.Feedback>
         </Form.Group>
-        <Button type="submit">Submit</Button>
+        <div className="teacher-add-button-container">
+          <button type="submit" className="teacher-add-button">
+            Submit
+          </button>
+        </div>
       </Form>
     </div>
   );

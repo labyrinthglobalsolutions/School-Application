@@ -16,6 +16,7 @@ import notfound from "../../images/not-found.png";
 import "react-sliding-pane/dist/react-sliding-pane.css";
 import { MdDelete, MdEditSquare } from "react-icons/md";
 import { Box, Modal } from "@mui/material";
+
 // import DeleteEmploeeModalPage from "./verifyAdmin";
 
 const columns = [

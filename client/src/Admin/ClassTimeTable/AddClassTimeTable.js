@@ -73,9 +73,9 @@ const TimetableForm = () => {
   };
 
   return (
-    <div>
+    <div className="teacher-add-totalContainer">
       <h2>Create or Update Timetable</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} className="teacher-add-formContainer">
         <Form.Group controlId="classId">
           <Form.Label>Class</Form.Label>
           <Form.Control
@@ -154,7 +154,9 @@ const TimetableForm = () => {
             ))}
           </Form.Control>
         </Form.Group>
-        <Button type="submit">Submit</Button>
+        <button className="global-add-button" type="submit">
+          Submit
+        </button>
       </Form>
     </div>
   );

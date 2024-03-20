@@ -1,5 +1,6 @@
 import express from "express";
 import {
+  AddClass,
   AddParent,
   AddStudent,
   AddSubject,
@@ -13,6 +14,7 @@ import {
   deleteStudent,
   deleteTeacher,
   getClassTeacherById,
+  getClasses,
   getFeeDetailsById,
   getFeeList,
   getParents,
@@ -87,3 +89,7 @@ adminRouter.get("/gettimetable", getTimetable);
 // Add Subject
 
 adminRouter.post("/addSubject", AddSubject);
+
+adminRouter.post("/addClass", AddClass);
+
+adminRouter.get("/getClasses", getClasses);
