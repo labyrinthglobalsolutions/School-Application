@@ -204,14 +204,18 @@ function AddStudent() {
                 {validated && !data.classID && "Please select a class"}
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group controlId="section">
-              <Form.Label>Section</Form.Label>
+          </Row>
+
+          <Row className="mb-3">
+            <Form.Group as={Col} controlId="section" md="3">
+              <Form.Label className="bootstraplabel mb-0">Section</Form.Label>
               <Form.Control
                 as="select"
                 name="section"
                 value={data.section}
                 onChange={change}
                 required
+                className="add-project-input"
               >
                 <option value="">Select Section</option>
                 <option value="A">A</option>
@@ -223,9 +227,7 @@ function AddStudent() {
                 Please select a section.
               </Form.Control.Feedback>
             </Form.Group>
-          </Row>
-          <Row className="mb-3">
-            <Form.Group as={Col} md="4" controlId="validationCustom05">
+            <Form.Group as={Col} md="3" controlId="validationCustom05">
               <label htmlFor="validationCustom05" className="bootstraplabel">
                 Address
               </label>
@@ -242,7 +244,7 @@ function AddStudent() {
                 {validated && !data.address && "Please provide address"}
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationCustom06">
+            <Form.Group as={Col} md="3" controlId="validationCustom06">
               <label htmlFor="validationCustom06" className="bootstraplabel">
                 Phone Number
               </label>
@@ -261,7 +263,7 @@ function AddStudent() {
                   "Please provide phone number"}
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationCustom07">
+            <Form.Group as={Col} md="3" controlId="validationCustom07">
               <label htmlFor="validationCustom07" className="bootstraplabel">
                 Email
               </label>
@@ -276,8 +278,9 @@ function AddStudent() {
               {/* Email field is not marked as required */}
             </Form.Group>
           </Row>
+
           <Row className="mb-3">
-            <Form.Group as={Col} md="4" controlId="validationCustom08">
+            <Form.Group as={Col} md="3" controlId="validationCustom08">
               <label htmlFor="validationCustom08" className="bootstraplabel">
                 Guardian Name
               </label>
@@ -296,7 +299,7 @@ function AddStudent() {
                   "Please provide guardian name"}
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationCustom09">
+            <Form.Group as={Col} md="3" controlId="validationCustom09">
               <label htmlFor="validationCustom09" className="bootstraplabel">
                 Guardian Phone Number
               </label>
@@ -315,7 +318,7 @@ function AddStudent() {
                   "Please provide guardian phone number"}
               </Form.Control.Feedback>
             </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationCustom10">
+            <Form.Group as={Col} md="3" controlId="validationCustom10">
               <label htmlFor="validationCustom10" className="bootstraplabel">
                 Guardian Email
               </label>
@@ -329,7 +332,7 @@ function AddStudent() {
               />
               {/* Guardian email field is not marked as required */}
             </Form.Group>
-            <Form.Group as={Col} md="4" controlId="validationCustom11">
+            <Form.Group as={Col} md="3" controlId="validationCustom11">
               <label
                 htmlFor="validationCustom11"
                 className="employee-add-label"
