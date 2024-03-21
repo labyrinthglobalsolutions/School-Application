@@ -161,9 +161,11 @@ export default function FeeDetailsList({ getFeeDetailsId, addFeeDetails }) {
         <Loader />
       ) : (
         <>
-          <button onClick={addFee} className="global-add-button">
-            Add Fee
-          </button>
+          <div className="global-add-button-container">
+            <button onClick={addFee} className="global-add-button">
+              Add Fee
+            </button>
+          </div>
           {employees.length === 0 ? (
             <>
               <div className="projects-not-found-container">

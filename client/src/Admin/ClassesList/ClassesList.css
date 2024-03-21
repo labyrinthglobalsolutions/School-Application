@@ -12,6 +12,12 @@
   border-radius: 10px;
 }
 
+.classes-add-button-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+
 .classes-add-button {
   width: max-content;
   background-color: #293b51;
@@ -23,18 +29,39 @@
   font-size: 18px;
   transition: background-color 0.3s;
   font-weight: bold;
-  margin-top: 10px;
+  margin: 10px;
 }
 
 .class-add-class-name {
   margin: 0;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 600;
   color: black;
 }
 
 .class-add-span {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   color: #293b51;
+}
+
+.classes-add-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.classes-add-card {
+  border-radius: 30px;
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  height: 150px;
+  width: 20%;
 }

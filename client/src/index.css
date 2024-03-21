@@ -23,3 +23,9 @@ code {
   font-weight: bold;
   margin: 10px;
 }
+
+.global-add-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}

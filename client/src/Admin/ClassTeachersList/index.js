@@ -159,7 +159,11 @@ export default function ClassTeachersList({
         <Loader />
       ) : (
         <>
-          <button onClick={handleClick}>Add Class Teacher</button>
+          <div className="global-add-button-container">
+            <button onClick={handleClick} className="global-add-button">
+              Add Class Teacher
+            </button>
+          </div>
           {employees.length === 0 ? (
             <>
               <div className="projects-not-found-container">

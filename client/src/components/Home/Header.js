@@ -5,7 +5,7 @@ import { AiFillHome } from "react-icons/ai";
 import { BsFillBriefcaseFill } from "react-icons/bs";
 import "./Header.css";
 import { Navigate } from "react-router-dom";
-import logo from "../Images/logo xf.png";
+import logo from "../../images/w_logo.png";
 const Header = (props) => {
   const navigate = useNavigate();
   const onClickLogin = () => {
@@ -106,7 +106,7 @@ const Header = (props) => {
         >
           <ul className="navbar-nav nav-bar-links-container">
             <Link to="/whyxpenseflow" className="nav-item-link">
-              Why Xpense Flow
+              Why Smart Scholor
             </Link>
 
             <Link to="/pricing" className="nav-item-link">

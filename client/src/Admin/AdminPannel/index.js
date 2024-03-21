@@ -230,9 +230,9 @@ function AdminPannel() {
         {active === "studentDetail" && (
           <StudentDetail updateEmpId={employeeId} />
         )}
-        {active === "profile" && (
+        {/* {active === "profile" && (
           <AdminProfile adminProfileUpdate={updateAdmin} />
-        )}
+        )} */}
         {active === "AddFeeDetails" && <AddFeeDetails />}
         {active === "FeeDetailsList" && (
           <FeeDetailsList

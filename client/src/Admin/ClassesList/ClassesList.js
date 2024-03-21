@@ -67,12 +67,14 @@ const ClassesList = () => {
   return (
     <div>
       <div>
-        <button
-          onClick={() => setAddClass(!isAdd)}
-          className="classes-add-button"
-        >
-          Add class
-        </button>
+        <div className="classes-add-button-container">
+          <button
+            onClick={() => setAddClass(!isAdd)}
+            className="classes-add-button"
+          >
+            Add class
+          </button>
+        </div>
         {isAdd && (
           <div className="classes-add-form-container">
             <input
@@ -99,17 +101,20 @@ const ClassesList = () => {
       </div>
       <div>
         <h1>Classes</h1>
-        {classes.map((el) => (
-          <div>
-            <p className="class-add-class-name">
-              ClassName: <span className="class-add-span">{el.className}</span>
-            </p>
-            <p className="class-add-class-name">
-              SectionName:
-              <span className="class-add-span"> {el.sectionName}</span>
-            </p>
-          </div>
-        ))}
+        <div className="classes-add-card-container ">
+          {classes.map((el) => (
+            <div className="classes-add-card">
+              <p className="class-add-class-name">
+                ClassName:{" "}
+                <span className="class-add-span">{el.className}</span>
+              </p>
+              <p className="class-add-class-name">
+                SectionName:
+                <span className="class-add-span"> {el.sectionName}</span>
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

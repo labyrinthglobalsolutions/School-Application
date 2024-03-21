@@ -248,7 +248,11 @@ export default function ParentsList({
         <Loader />
       ) : (
         <>
-          <button onClick={addParent}>Add Parent</button>
+          <div className="global-add-button-container">
+            <button onClick={addParent} className="global-add-button">
+              Add Parent
+            </button>
+          </div>
           {employees.length === 0 ? (
             <>
               <div className="projects-not-found-container">

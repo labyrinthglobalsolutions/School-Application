@@ -72,7 +72,11 @@ const Timetable = ({ changeSetActive }) => {
 
   return (
     <div>
-      <button onClick={addTimeTable}>Add  or Edit  Timetable</button>
+      <div className="global-add-button-container">
+        <button onClick={addTimeTable} className="global-add-button">
+          Add or Edit Timetable
+        </button>
+      </div>
       {Object.entries(groupTimetableData()).map(([groupKey, groupData]) => (
         <div key={groupKey}>
           <h3>{`Class ${groupData[0].classId} Section ${groupData[0].section}`}</h3>

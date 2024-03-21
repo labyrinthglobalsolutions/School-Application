@@ -239,9 +239,11 @@ export default function TeachersList({
 
   return (
     <>
-      <button onClick={addTeacher} className="global-add-button">
-        Add Teacher
-      </button>
+      <div className="global-add-button-container">
+        <button onClick={addTeacher} className="global-add-button">
+          Add Teacher
+        </button>
+      </div>
       {loading ? (
         <Loader />
       ) : (
