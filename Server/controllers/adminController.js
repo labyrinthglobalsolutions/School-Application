@@ -817,8 +817,8 @@ export const AddSubject = CatchAsyncError(async (req, res) => {
 
 export const AddClass = CatchAsyncError(async (req, res) => {
   try {
-    const { className, sectionName } = req.body;
-    console.log(className, sectionName, req.body);
+    const { className, sectionName, noOfPeriods } = req.body; // Extracting noOfPeriods from req.body
+    console.log(className, sectionName, noOfPeriods, req.body);
 
     const existingClass = await Classes.findOne({
       className: className.toLowerCase(),
@@ -839,6 +839,7 @@ export const AddClass = CatchAsyncError(async (req, res) => {
     const newClass = new Classes({
       className: className.toLowerCase(),
       sectionName: sectionName.toLowerCase(),
+      noOfPeriods: noOfPeriods, // Assigning noOfPeriods to the new class instance
     });
     await newClass.save();
     res.status(201).json({ message: "Class added successfully" });
