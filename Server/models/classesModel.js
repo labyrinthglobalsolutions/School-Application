@@ -9,6 +9,10 @@ const ClassSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  noOfPeriods: {
+    type: Number,
+    required: true,
+  },
 });
 
 const Classes = mongoose.model("Classes", ClassSchema);
