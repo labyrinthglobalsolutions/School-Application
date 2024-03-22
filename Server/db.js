@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 import { createAdmin } from "./models/adminModel.js";
 
 dotenv.config();
-const url = `${process.env.MONGODB_URI}${process.env.MONGO_DB}`;
+const url = `${process.env.MONGODB_URI}`;
 console.log(url);
 const connectDatabase = () => {
   mongoose
