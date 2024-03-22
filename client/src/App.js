@@ -29,13 +29,16 @@ import { NotFound } from "./Notfound/index.js";
 import "./App.css";
 import OrganizationSignup from "./Admin/OrganizationSignup/OrganizationSignup.js";
 import PricingSelectionPage from "./Admin/OrganizationSignup/PricingSelectionPage.js";
-import Whyxpenseflow from "./components/Pages/WhyXpenseFlow/index.js";
-import Aboutus from "./components/Pages/AboutUs/index.js";
+
 import AddClassTeacher from "./Admin/ClassTeachersList/AddClassTeacher.js";
 import TimetableForm from "./Admin/ClassTimeTable/AddClassTimeTable.js";
 import TeacherPanel from "./Teacher/TeacherPanel/index.js";
 import ClassSelectionPage from "./Teacher/ClassSelectionPage/index.js";
 import AddSubject from "./Admin/AddSubject/index.js";
+import About from "./components/Pages/AboutUs/index.js";
+import ContactUs from "./components/Pages/ContactUs/ContactUs.js";
+import FacilityList from "./components/Pages/Facilites/Facilites.js";
+import Admissions from "./components/Pages/Admissions/Admissions.js";
 function App() {
   const navigate = useNavigate();
   return (
@@ -81,9 +84,9 @@ function App() {
       {/* <Route path="/employeepanel" element={<EmployeePanel />} /> */}
       {/* <Route path="/superSignup" element={<SuperadminSignup />} /> */}
       {/* <Route path="/super-forgot" element={<SuperForgotPassword />} /> */}
-      <Route path="/whyxpenseflow" element={<Whyxpenseflow />} />
+
       <Route path="/pricing" element={<Pricing />} />
-      <Route path="/aboutus" element={<Aboutus />} />
+      <Route path="/aboutus" element={<About />} />
       <Route path="/Support" element={<Support />} />
       <Route path="/" element={<Home />} />
       <Route path="/Terms-and-conditions" element={<Terms />} />
@@ -92,6 +95,9 @@ function App() {
       <Route path="/verify" element={<Verify />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/addsubject" element={<AddSubject />} />
+      <Route path="/contact" element={<ContactUs />} />
+      <Route path="/facility" element={<FacilityList />} />
+      <Route path="/adminssion" element={<Admissions />} />
       <Route
         path="*"
         element={

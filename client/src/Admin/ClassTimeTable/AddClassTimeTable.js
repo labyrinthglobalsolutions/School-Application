@@ -9,6 +9,7 @@ const TimetableForm = () => {
   const [teacherId, setTeacherId] = useState("");
   const [section, setSection] = useState("");
   const [teachers, setTeachers] = useState([]);
+  const [classes, setClasses] = useState([]);
 
   // Fetch the list of teachers when the component mounts
   useEffect(() => {
@@ -28,6 +29,7 @@ const TimetableForm = () => {
     };
 
     fetchTeachers();
+    getClasses();
   }, []);
 
   const handleSubmit = async (e) => {
@@ -72,6 +74,24 @@ const TimetableForm = () => {
     }
   };
 
+  const getClasses = async () => {
+    const options = {
+      method: "GET",
+    };
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_FETCH_URL}/getClasses`,
+        options
+      );
+      const data = await response.json();
+      setClasses(data.classes);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const filteredSections = classes.filter((el) => classId === el.className);
+
   return (
     <div className="teacher-add-totalContainer">
       <h2>Create or Update Timetable</h2>
@@ -80,33 +100,45 @@ const TimetableForm = () => {
           <Form.Label>Class</Form.Label>
           <Form.Control
             as="select"
+            name="classId"
             value={classId}
             onChange={(e) => setClassId(e.target.value)}
+            required
           >
             <option value="">Select Class</option>
-            <option value="Nursery">Nursery</option>
-            <option value="LKG">LKG</option>
-            <option value="UKG">UKG</option>
-            {[...Array(10)].map((_, index) => (
-              <option key={index + 1} value={`Grade ${index + 1}`}>
-                Grade {index + 1}
-              </option>
+            {classes.map((el) => (
+              <option value={el.className}>{el.className}</option>
             ))}
           </Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Please select a class.
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group controlId="section">
           <Form.Label>Section</Form.Label>
           <Form.Control
             as="select"
+            name="section"
             value={section}
             onChange={(e) => setSection(e.target.value)}
+            required
           >
-            <option value="">Select Section</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
+            {classId === "" && (
+              <option value="">Please select a class first</option>
+            )}
+            {filteredSections.length > 0 ? (
+              filteredSections.map((el) => (
+                <option key={el._id} value={el.sectionName}>
+                  {el.sectionName}
+                </option>
+              ))
+            ) : (
+              <option value="">No sections available</option>
+            )}
           </Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Please select a section.
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group controlId="period">
           <Form.Label>Period</Form.Label>

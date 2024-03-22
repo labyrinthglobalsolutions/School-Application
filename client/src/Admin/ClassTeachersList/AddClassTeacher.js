@@ -11,6 +11,7 @@ function AddClassTeacher() {
     section: "",
     teacherId: "",
   });
+  const [classes, setClasses] = useState([]);
   const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
@@ -34,7 +35,22 @@ function AddClassTeacher() {
     };
 
     fetchTeachers();
+    getClasses();
   }, []);
+
+  const getClasses = async () => {
+    const options = {
+      method: "GET",
+    };
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_FETCH_URL}/getClasses`,
+        options
+      );
+      const data = await response.json();
+      setClasses(data.classes);
+    } catch (error) {}
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -43,6 +59,12 @@ function AddClassTeacher() {
       [name]: value,
     });
   };
+
+  const filteredSections = classes.filter(
+    (el) => data.classId === el.className
+  );
+
+  console.log(filteredSections);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -116,13 +138,8 @@ function AddClassTeacher() {
             required
           >
             <option value="">Select Class</option>
-            <option value="Nursery">Nursery</option>
-            <option value="LKG">LKG</option>
-            <option value="UKG">UKG</option>
-            {[...Array(10)].map((_, index) => (
-              <option key={index + 1} value={`Grade ${index + 1}`}>
-                Grade {index + 1}
-              </option>
+            {classes.map((el) => (
+              <option value={el.className}>{el.className}</option>
             ))}
           </Form.Control>
           <Form.Control.Feedback type="invalid">
@@ -138,11 +155,18 @@ function AddClassTeacher() {
             onChange={handleChange}
             required
           >
-            <option value="">Select Section</option>
-            <option value="A">A</option>
-            <option value="B">B</option>
-            <option value="C">C</option>
-            <option value="D">D</option>
+            {data.classId === "" && (
+              <option value="">Please select a class first</option>
+            )}
+            {filteredSections.length > 0 ? (
+              filteredSections.map((el) => (
+                <option key={el._id} value={el.sectionName}>
+                  {el.sectionName}
+                </option>
+              ))
+            ) : (
+              <option value="">No sections available</option>
+            )}
           </Form.Control>
           <Form.Control.Feedback type="invalid">
             Please select a section.

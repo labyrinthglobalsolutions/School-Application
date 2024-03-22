@@ -1,110 +1,64 @@
-import { useNavigate } from "react-router-dom";
-import Header from "./Header.js";
-import Footer from "./Footer.js";
+import { NavLink } from "react-router-dom";
+
+// import MissionVision from "../components/MissionVision";
+// import Testimonials from "../components/Testimonials";
+// import WhySchool from "../components/WhySchool";
+import video from "../assets/course-video.mp4";
 import "./Home.css";
+import { missionVision, whySchool } from "../Constants";
+import Testimonials from "../Testimonials/Testimonials";
+import Header from "./Header";
+import Footer from "./Footer";
 
-import {
-  MdOutlineManageAccounts,
-  MdArchitecture,
-  MdEngineering,
-} from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
-import { TfiWorld } from "react-icons/tfi";
-import { SlNote } from "react-icons/sl";
-import home1 from "../Images/home1.png";
-import home from "../Images/home.png";
-
-const Data = [
-  { icon: MdOutlineManageAccounts, heading: "Accounting" },
-  { icon: MdArchitecture, heading: "Architecture" },
-  { icon: MdEngineering, heading: "Engineering" },
-  { icon: CgProfile, heading: "Consulting" },
-  { icon: TfiWorld, heading: "IT Services" },
-  { icon: SlNote, heading: "GovCon" },
-];
 const Home = () => {
-  const navigate = useNavigate();
-
   return (
     <>
       <Header />
-      <div className="home-page-main-container">
-        <div className="home-page-container1">
-          <div className="home-page-container1-sub1">
-            <h1 className="home-page-container1-heading">
-              Optimize processes, enhance efficiency, and drive financial
-              growth.
-            </h1>
-            <p className="home-page-container1-text">
-              Discover how XpenseFlow empowers your project-driven firm to
-              effortlessly manage expenses and maximize profitability
-            </p>
-            <button
-              onClick={() => navigate("/aboutus")}
-              className="home-page-container1-button"
-            >
-              Learn More
-            </button>
-          </div>
-          <div className="home-page-container1-image-container">
-            <img className="home-page-container1-image" alt="kk" src={home1} />
-          </div>
-        </div>
-        <div className="home-page-container3">
-          <h1 className="home-page-container3-heading">
-            A versatile platform catering to startups and corporations alike,
-            enabling seamless operations management, process streamlining, and
-            growth acceleration.
-          </h1>
-          <p className="home-page-container3-text">
-            Our versatile platform seamlessly integrates time tracking, project
-            management, HR planning, and office operations, all fully
-            customizable for company-wide or user-specific settings, empowering
-            you to tailor your workflow for maximum efficiency and productivity.
+      <div className="home">
+        <video src={video} autoPlay muted loop class="video-bg" />
+        <div className="content">
+          <p className="title">
+            Welcome to{" "}
+            <span style={{ color: "#00AFC7" }}>Smart Scholar Central</span>{" "}
+            School
           </p>
-        </div>
-        <div className="home-page-container4">
-          <div className="home-page-container4-sub1">
-            <h1 className="home-page-container4-heading">
-              A time tracker that helps you go paperless
-            </h1>
-            <p className="home-page-container4-text">
-              Revolutionize your productivity with our paperless time tracker.
-            </p>
-          </div>
-          <div className="home-page-image-container-4">
-            <img
-              src={home}
-              className="home-page-container4-image"
-              alt="image1"
-            />
-          </div>
-        </div>
-        <h1 className="home-page-container3-heading">
-          The impacts of flying blind on projects and budget are all too
-          familiar
-        </h1>
-        <div className="home-page-support-services-main-container">
-          <h1 className="home-page-container1-heading">
-            We support professional services firms with teams of 5 to 500+
-          </h1>
-          <div className="home-page-support-services-sub-container">
-            {Data.map((each) => {
-              return (
-                <div className="home-page-support-services-card">
-                  <each.icon className="home-page-support-services-card-icon" />
-                  <p className="home-page-support-services-card-heading">
-                    {each.heading}
-                  </p>
-                  {/* <button className="home-page-support-services-card-button">
-                    Learn More
-                  </button> */}
-                </div>
-              );
-            })}
-          </div>
+          <p className="info">
+            We are delighted to have you visit our virtual home (Citadel of
+            Excellence) - a place where knowledge thrives, dreams soar, and
+            friendships flourish. At school, we believe in cultivating an
+            environment that fosters academic excellence, nurtures creativity,
+            and embraces diversity.
+          </p>
+          <center>
+            <NavLink to="/aboutus">Explore</NavLink>
+          </center>
         </div>
       </div>
+      <div className="content">
+        <h1>Our Mission and Vision</h1>
+        <div className="mission-vision">
+          {missionVision.map((missVis) => (
+            <div className="missVis" key={missVis.id}>
+              <div className="icons">{missVis.icon}</div>
+              <h2>{missVis.title}</h2>
+              <p>{missVis.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="content">
+        <h1>Why Smart Scholar Central School?</h1>
+        <div className="reasons">
+          {whySchool.map((reason) => (
+            <div className="reason" key={reason.id}>
+              <div className="icon">{reason.icon}</div>
+              <h2>{reason.title}</h2>
+              <p>{reason.reason}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <Testimonials />
       <Footer />
     </>
   );

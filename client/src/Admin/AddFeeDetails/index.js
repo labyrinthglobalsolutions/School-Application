@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./index.css";
 import Toast from "../../components/utlis/toast";
 
 function AddFeeDetails() {
   const [validated, setValidated] = useState(false);
+  const [classes, setClasses] = useState([]);
   const [data, setData] = useState({
     classId: "",
     tuitionFee: "",
@@ -76,6 +77,26 @@ function AddFeeDetails() {
     }
   };
 
+  const getClasses = async () => {
+    const options = {
+      method: "GET",
+    };
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_FETCH_URL}/getClasses`,
+        options
+      );
+      const data = await response.json();
+      setClasses(data.classes);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getClasses();
+  }, []);
+
   return (
     <div className="teacher-add-totalContainer">
       <h2>Add Fee Details</h2>
@@ -95,12 +116,9 @@ function AddFeeDetails() {
             required
           >
             <option value="">Select Class</option>
-            <option value="Nursery">Nursery</option>
-            <option value="LKG">LKG</option>
-            <option value="UKG">UKG</option>
-            {[...Array(10)].map((_, index) => (
-              <option key={index + 1} value={`Grade ${index + 1}`}>
-                Grade {index + 1}
+            {classes.map((el) => (
+              <option key={el._id} value={el.className}>
+                {el.className}
               </option>
             ))}
           </Form.Control>
