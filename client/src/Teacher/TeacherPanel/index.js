@@ -18,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 import AttendancePage from "../Attendence";
 import HomeworkPage from "../Homework";
 import MarksPage from "../Marks";
+import MessagePage from "../Messages";
 // import DisableOrgList from "../DisabledOrgList/DisableOrgList";
 // import SuperDashboard from "../dashboard/dashboard";
 // import OrganizationsPending from "../OrganizationsPending/OrganizationsPending";
@@ -124,10 +125,10 @@ function TeacherPanel() {
 
           <MenuItem
             icon={<BsBuildingAdd />}
-            onClick={() => setActive("orgform")}
-            className={active === "orgform" ? "super-menu-active" : ""}
+            onClick={() => setActive("MessagePage")}
+            className={active === "MessagePage" ? "super-menu-active" : ""}
           >
-            xxxxxx
+            Messages
           </MenuItem>
           <MenuItem
             icon={<FaMoneyCheckDollar />}
@@ -162,6 +163,7 @@ function TeacherPanel() {
         {active === "AttendancePage" && <AttendancePage />}
         {active === "HomeworkPage" && <HomeworkPage />}
         {active === "MarksPage" && <MarksPage />}
+        {active === "MessagePage" && <MessagePage />}
       </div>
     </div>
   );
