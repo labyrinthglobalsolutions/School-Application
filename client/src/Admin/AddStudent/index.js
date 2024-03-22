@@ -7,6 +7,7 @@ import Select from "react-dropdown-select";
 function AddStudent() {
   const [validated, setValidated] = useState(false);
   const [profilePic, setprofilePic] = useState("");
+  const [classes, setClasses] = useState([]);
 
   const [data, setData] = useState({
     fullName: "",
@@ -35,6 +36,7 @@ function AddStudent() {
       // Fetch students or employees data here
     };
     fetchData();
+    getClasses();
   }, []);
 
   const change = (event) => {
@@ -43,6 +45,26 @@ function AddStudent() {
       [event.target.name]: event.target.value,
     });
   };
+
+  const getClasses = async () => {
+    const options = {
+      method: "GET",
+    };
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_FETCH_URL}/getClasses`,
+        options
+      );
+      const data = await response.json();
+      setClasses(data.classes);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const filteredSections = classes.filter(
+    (el) => data.classID === el.className
+  );
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -181,27 +203,21 @@ function AddStudent() {
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md="3" controlId="validationCustom04">
-              <Form.Label className="bootstraplabel">Class</Form.Label>
+              <Form.Label>Class</Form.Label>
               <Form.Control
-                required
                 as="select"
-                value={data.classID}
                 name="classID"
+                value={data.classID}
                 onChange={change}
-                className="add-project-input"
+                required
               >
                 <option value="">Select Class</option>
-                <option value="nursery">Nursery</option>
-                <option value="lkg">LKG</option>
-                <option value="ukg">UKG</option>
-                {[...Array(10)].map((_, index) => (
-                  <option key={index + 1} value={index + 1}>
-                    Grade {index + 1}
-                  </option>
+                {classes.map((el) => (
+                  <option value={el.className}>{el.className}</option>
                 ))}
               </Form.Control>
               <Form.Control.Feedback type="invalid">
-                {validated && !data.classID && "Please select a class"}
+                Please select a class.
               </Form.Control.Feedback>
             </Form.Group>
           </Row>
@@ -215,13 +231,19 @@ function AddStudent() {
                 value={data.section}
                 onChange={change}
                 required
-                className="add-project-input"
               >
-                <option value="">Select Section</option>
-                <option value="A">A</option>
-                <option value="B">B</option>
-                <option value="C">C</option>
-                <option value="D">D</option>
+                {data.classID === "" && (
+                  <option value="">Please select a class first</option>
+                )}
+                {filteredSections.length > 0 ? (
+                  filteredSections.map((el) => (
+                    <option key={el._id} value={el.sectionName}>
+                      {el.sectionName}
+                    </option>
+                  ))
+                ) : (
+                  <option value="">No sections available</option>
+                )}
               </Form.Control>
               <Form.Control.Feedback type="invalid">
                 Please select a section.

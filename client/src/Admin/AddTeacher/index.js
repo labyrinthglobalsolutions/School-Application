@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Row, Col } from "react-bootstrap";
 import Select from "react-dropdown-select";
 import Toast from "../../components/utlis/toast";
@@ -16,6 +16,7 @@ function AddTeacher() {
     subjects: [],
     classes: [],
   });
+  const [classList, setClasses] = useState([]);
 
   const change = (event) => {
     setTeacherData({
@@ -76,6 +77,31 @@ function AddTeacher() {
       // Show error message
     }
   };
+
+  const getClasses = async () => {
+    const options = {
+      method: "GET",
+    };
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_FETCH_URL}/getClasses`,
+        options
+      );
+      const data = await response.json();
+      const classData = data.classes.map((classObj) => ({
+        value: classObj.className,
+        label: classObj.className,
+      }));
+
+      setClasses(classData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getClasses();
+  }, []);
 
   return (
     <div className="teacher-add-totalContainer">
@@ -213,21 +239,7 @@ function AddTeacher() {
               <Select
                 className="teacher-add-input"
                 name="classes"
-                options={[
-                  { value: "nursery", label: "Nursery" },
-                  { value: "lkg", label: "LKG" },
-                  { value: "ukg", label: "UKG" },
-                  { value: "1", label: "1" },
-                  { value: "2", label: "2" },
-                  { value: "3", label: "3" },
-                  { value: "4", label: "4" },
-                  { value: "5", label: "5" },
-                  { value: "6", label: "6" },
-                  { value: "7", label: "7" },
-                  { value: "8", label: "8" },
-                  { value: "9", label: "9" },
-                  { value: "10", label: "10" },
-                ]}
+                options={classList}
                 onChange={(selectedOptions) =>
                   setTeacherData({
                     ...teacherData,

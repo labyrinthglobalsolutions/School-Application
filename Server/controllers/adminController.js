@@ -822,18 +822,11 @@ export const AddClass = CatchAsyncError(async (req, res) => {
 
     const existingClass = await Classes.findOne({
       className: className.toLowerCase(),
+      sectionName: sectionName.toLowerCase(),
     });
 
     if (existingClass) {
       return res.status(400).json({ message: "Class already exists" });
-    }
-
-    const existingSection = await Classes.findOne({
-      sectionName: sectionName.toLowerCase(),
-    });
-
-    if (existingSection) {
-      return res.status(400).json({ message: "Section already exists" });
     }
 
     const newClass = new Classes({
