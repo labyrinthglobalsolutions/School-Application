@@ -8,6 +8,7 @@ const ClassesList = () => {
   const [data, setClassName] = useState({
     className: "",
     sectionName: "",
+    noOfPeriods: "",
   });
 
   const [classes, setClasses] = useState([]);
@@ -93,6 +94,14 @@ const ClassesList = () => {
               placeholder="section name"
               onChange={(event) => handleChange(event)}
             />
+            <input
+              type="text"
+              name="noOfPeriods"
+              value={data.noOfPeriods}
+              className="classes-add-input"
+              placeholder="No Of Periods"
+              onChange={(event) => handleChange(event)}
+            />
             <button onClick={addClass} className="classes-add-button">
               Add
             </button>
@@ -111,6 +120,10 @@ const ClassesList = () => {
               <p className="class-add-class-name">
                 SectionName:
                 <span className="class-add-span"> {el.sectionName}</span>
+              </p>
+              <p className="class-add-class-name">
+                Number Of Periods:
+                <span className="class-add-span"> {el.noOfPeriods}</span>
               </p>
             </div>
           ))}
