@@ -12,6 +12,7 @@ import {
   createOrUpdateTimetable,
   deleteParent,
   deleteStudent,
+  deleteSubject,
   deleteTeacher,
   getClassTeacherById,
   getClasses,
@@ -20,6 +21,7 @@ import {
   getParents,
   getStudentById,
   getStudents,
+  getSubjects,
   getTeacherById,
   getTeachers,
   getTimetable,
@@ -28,7 +30,9 @@ import {
   updateFeeDetailsById,
   updateStatusOfParent,
   updateStatusOfStudent,
+  updateStatusOfSubject,
   updateStatusOfTeacher,
+  updateSubjectById,
   updateTeacherById,
 } from "../controllers/adminController.js";
 import multer from "multer";
@@ -89,6 +93,10 @@ adminRouter.get("/gettimetable", getTimetable);
 // Add Subject
 
 adminRouter.post("/addSubject", AddSubject);
+adminRouter.get("/getSubjects", getSubjects);
+adminRouter.put("/updatesubjectstatus/:id", updateStatusOfSubject);
+adminRouter.delete("/deleteSubject/:id", deleteSubject);
+adminRouter.put("/updateSubject/:id", updateSubjectById);
 
 adminRouter.post("/addClass", AddClass);
 
