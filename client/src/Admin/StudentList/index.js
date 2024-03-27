@@ -247,6 +247,11 @@ export default function StudentList({ getStudentId, createStudent }) {
         <Loader />
       ) : (
         <>
+          <div className="global-add-button-container">
+            <button onClick={addEmployee} className="global-add-button">
+              Add Student
+            </button>
+          </div>
           {employees.length === 0 ? (
             <>
               <div className="projects-not-found-container">

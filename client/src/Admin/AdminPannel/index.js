@@ -1,4 +1,4 @@
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
+import { Sidebar, Menu, MenuItem, SubMenu } from "react-pro-sidebar";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrTasks, GrUser } from "react-icons/gr";
 import { IoLogOut } from "react-icons/io5";
@@ -148,20 +148,23 @@ function AdminPannel() {
           >
             All Students
           </MenuItem>
-          <MenuItem
-            icon={<MdAddTask />}
-            onClick={() => setActive("addstudent")}
-            className={active === "addstudent" ? "menu-active" : ""}
-          >
-            Add Student
-          </MenuItem>
-          <MenuItem
-            icon={<PiUserListBold />}
-            onClick={() => setActive("TeachersList")}
-            className={active === "TeachersList" ? "menu-active" : ""}
-          >
-            Teachers List
-          </MenuItem>
+          <SubMenu label="Teachers List" className="side-bar-submenu-container">
+            <MenuItem
+              icon={<PiUserListBold />}
+              onClick={() => setActive("TeachersList")}
+              className={active === "TeachersList" ? "menu-active" : ""}
+            >
+              Teachers List
+            </MenuItem>
+            <MenuItem
+              icon={<PiUserCirclePlusBold />}
+              onClick={() => setActive("ClassTeachersList")}
+              className={active === "ClassTeachersList" ? "menu-active" : ""}
+            >
+              Class Teachers List
+            </MenuItem>
+          </SubMenu>
+
           <MenuItem
             icon={<PiUserCirclePlusBold />}
             onClick={() => setActive("FeeDetailsList")}
@@ -169,13 +172,7 @@ function AdminPannel() {
           >
             Fee Details List
           </MenuItem>
-          <MenuItem
-            icon={<PiUserCirclePlusBold />}
-            onClick={() => setActive("ClassTeachersList")}
-            className={active === "ClassTeachersList" ? "menu-active" : ""}
-          >
-            Class Teachers List
-          </MenuItem>
+
           <MenuItem
             icon={<PiUserCirclePlusBold />}
             onClick={() => setActive("classList")}
