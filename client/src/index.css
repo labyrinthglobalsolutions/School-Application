@@ -952,3 +952,127 @@ footer .col h2 {
     /* margin-left: 20px; */
   }
 }
+
+
+.main-color {
+  color: #316795 !important;
+}
+.main-color-1 {
+  color: #4eb151 !important;
+}
+.app-main-heading-1 {
+  font-size: 48px;
+  font-weight: 600;
+  margin: 0px;
+  color: #333333;
+}
+
+.app-main-heading-2 {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0px;
+  color: #333333;
+}
+.app-main-heading-3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0px;
+  color: #333333;
+}
+.app-main-heading-4 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0px;
+  color: #333333;
+}
+.app-main-heading-5 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0px;
+  color: #333333;
+}
+
+.app-para-heading-1 {
+  
+  font-size: 32px;
+  margin: 0px;
+  color: #666666;
+}
+.app-para-heading-2 {
+  font-size: 24px;
+  margin: 0px;
+  color: #666666;
+}
+.app-para-heading-3 {
+  font-size: 18px;
+  margin: 0px;
+  color: #666666;
+}
+.app-para-heading-4 {
+  font-size: 16px;
+  margin: 0px;
+  color: #666666;
+}
+.app-para-heading-5 {
+  font-size: 14px;
+  margin: 0px;
+  color: #666666;
+}
+
+.app-main-button-1 {
+  border: none;
+  background-color: #316795;
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 32px;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  font-weight: 600;
+  width: max-content;
+  transition: background-color 0.3s ease;
+}
+.app-main-button-1:hover {
+  opacity: 0.8;
+}
+.app-main-button-2 {
+  border: none;
+  background-color: #316795;
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 32px;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  font-weight: 600;
+  width: max-content;
+  transition: background-color 0.3s ease;
+}
+.app-main-button-2:hover {
+  opacity: 0.8;
+}
+.app-main-button-3 {
+  border: none;
+  background-color: #fff;
+  color: #316795;
+  border-radius: 20px;
+  padding: 6px 32px;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  font-weight: 600;
+  width: max-content;
+  transition: background-color 0.3s ease;
+}
+.app-main-button-3:hover {
+  opacity: 0.8;
+}
+
+@media (max-width:768px){
+  .app-main-heading-1{
+    font-size:28px;
+  }
+  .app-para-heading-3{
+    font-size:14px;
+  }
+}

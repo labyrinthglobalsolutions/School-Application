@@ -16,4 +16,24 @@
     padding:10px;
     background-color: #f2f2f2;
     border-radius:10px;
+    outline:none;
+}
+
+
+
+.add-subject-button{
+    border: none;
+  background-color: #316795;
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 32px;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  font-weight: 600;
+  width: max-content;
+  transition: background-color 0.3s ease;
+}
+.add-subject-button:hover{
+    opacity: 0.8;
 }
