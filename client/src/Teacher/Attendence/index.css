@@ -1,0 +1,46 @@
+.attendance-main-container{
+    display:flex;
+    flex-direction: column;
+    width:100%;
+}
+.attendance-sub-container{
+    display:flex;
+    justify-content: space-between;
+    gap:20px;
+    width:100%;
+}
+.attendane-select-monnth-year-container{
+    display:flex;
+    gap:10px;
+}
+.attendance-select-field{
+    border:0.5px solid #ddddee;
+    border-radius:4px;
+    padding:4px;
+    cursor:pointer;
+    color:#000;
+    
+}
+.attendance-present-absent-select{
+    cursor:pointer;
+    color:#000;
+    border:none;
+    padding:8px;
+    border-radius:4px;
+    outline:none;
+}
+.attendance-header-text{
+    text-align: center;
+    background-color: #36454F !important;
+    color:#fff !important;
+}
+.attendance-value-text{
+    text-align: center;
+    background-color: #f2f2f2 !important;
+    color:#000 !important;
+}
+@media(max-width:768px){
+    .attendance-sub-container{
+        flex-wrap: wrap;
+    }
+}

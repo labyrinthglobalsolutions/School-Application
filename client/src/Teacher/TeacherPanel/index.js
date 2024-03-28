@@ -18,6 +18,8 @@ import { useNavigate } from "react-router-dom";
 import AttendancePage from "../Attendence";
 import HomeworkPage from "../Homework";
 import MarksPage from "../Marks";
+import MessagePage from "../Messages";
+import TodayAttendancePage from "../Attendence/TodayAttendance";
 // import DisableOrgList from "../DisabledOrgList/DisableOrgList";
 // import SuperDashboard from "../dashboard/dashboard";
 // import OrganizationsPending from "../OrganizationsPending/OrganizationsPending";
@@ -52,10 +54,7 @@ function TeacherPanel() {
     navigate("/superlogin");
   };
 
-  const dynamicStyle = {
-    height: "max-content",
-    width: isCollapsed ? "100%" : "84%",
-  };
+  const dynamicStyle = isCollapsed ? "collapsed-width" : "not-collapsed-width";
 
   return (
     <div style={{ display: "flex", height: "100vh", width: "100%" }}>
@@ -124,10 +123,10 @@ function TeacherPanel() {
 
           <MenuItem
             icon={<BsBuildingAdd />}
-            onClick={() => setActive("orgform")}
-            className={active === "orgform" ? "super-menu-active" : ""}
+            onClick={() => setActive("MessagePage")}
+            className={active === "MessagePage" ? "super-menu-active" : ""}
           >
-            xxxxxx
+            Messages
           </MenuItem>
           <MenuItem
             icon={<FaMoneyCheckDollar />}
@@ -148,7 +147,7 @@ function TeacherPanel() {
           </MenuItem>
         </Menu>
       </Sidebar>
-      <div style={dynamicStyle}>
+      <div className={dynamicStyle}>
         {/* {active === "dashboard" && <SuperDashboard />}
         {active === "subform" && (
           <SubscriptionForm setSubScription={updateSubscription} />
@@ -159,9 +158,13 @@ function TeacherPanel() {
             setUpdate={updateOrg}
           />
         )} */}
-        {active === "AttendancePage" && <AttendancePage />}
+        {active === "AttendancePage" && (
+          <AttendancePage setActive={setActive} />
+        )}
+        {active === "TodayAttendance" && <TodayAttendancePage />}
         {active === "HomeworkPage" && <HomeworkPage />}
         {active === "MarksPage" && <MarksPage />}
+        {active === "MessagePage" && <MessagePage />}
       </div>
     </div>
   );

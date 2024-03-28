@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Toast from "../../components/utlis/toast";
+import './index.css'
 
 const MarksPage = () => {
   const [studentsWithMarks, setStudentsWithMarks] = useState([]);
@@ -97,65 +98,88 @@ const MarksPage = () => {
         gridTemplateColumns: "auto 1fr",
         gap: "20px",
         padding: "20px",
+        width:"100%"
       }}
     >
-      <div>
-        <h2 style={{ marginBottom: "20px" }}>Add Marks</h2>
+      <div style={{width:"100%",overflow:"scroll"}}>
+        <h2
+          style={{ marginBottom: "20px" }}
+          className="app-main-heading-2 text-center"
+        >
+          Add Marks
+        </h2>
         <select
           value={examType}
           onChange={(e) => setExamType(e.target.value)}
           style={{ marginBottom: "20px" }}
+          className="marks-type-select-option"
         >
-          <option value="Midterm">Midterm</option>
-          <option value="Final">Final</option>
-          <option value="Quiz">Quiz</option>
+          <option value="Midterm" className="select-option">
+            Midterm
+          </option>
+          <option value="Final" className="select-option">
+            Final
+          </option>
+          <option value="Quiz" className="select-option">
+            Quiz
+          </option>
           {/* Add more options as needed */}
         </select>
-        {studentsWithMarks.map((student, index) => (
-          <div
-            style={{
-              display: "flex",
-              gap: "10px",
-              alignItems: "center",
-              marginBottom: "10px",
-            }}
-            key={student._id}
-          >
-            <h3 style={{ width: "250px", marginRight: "10px" }}>
-              {student.fullName}
-            </h3>
-            <input
-              type="number"
-              value={marksData[index]?.marksObtained || ""}
-              onChange={(e) =>
-                handleInputChange(index, "marksObtained", e.target.value)
-              }
-              placeholder="Marks Obtained"
-              style={{ marginRight: "10px" }}
-            />
-            <input
-              type="number"
-              value={marksData[index]?.totalMarks || ""}
-              onChange={(e) =>
-                handleInputChange(index, "totalMarks", e.target.value)
-              }
-              placeholder="Total Marks"
-              style={{ marginRight: "10px" }}
-            />
-            <button
-              onClick={() => handleAddMarks(index)}
-              disabled={marksData[index]?.added}
+        <div className="marks-add-list-container">
+          {studentsWithMarks.map((student, index) => (
+            <div
               style={{
-                padding: "5px 10px",
-                border: "none",
-                cursor: "pointer",
-                borderRadius: "5px",
+                display: "flex",
+                gap: "10px",
+                alignItems: "center",
+                marginBottom: "10px",
+                border: "1px solid #ddddee",
+                padding: "10px",
+                borderRadius: "4px",
+                width:"100%",
+                overflow:"scroll"
               }}
+              key={student._id}
             >
-              {marksData[index]?.added ? "Marks Added" : "Add Marks"}
-            </button>
-          </div>
-        ))}
+              <h3
+                style={{ minWidth: "250px", marginRight: "10px" }}
+                className="app-main-heading-4"
+              >
+                {index + 1}. {student.fullName}
+              </h3>
+              <input
+                type="number"
+                value={marksData[index]?.marksObtained || ""}
+                onChange={(e) =>
+                  handleInputChange(index, "marksObtained", e.target.value)
+                }
+                placeholder="Marks Obtained"
+                style={{ marginRight: "10px" }}
+                className="mark-obtainer-input"
+              />
+              <input
+                type="number"
+                value={marksData[index]?.totalMarks || ""}
+                onChange={(e) =>
+                  handleInputChange(index, "totalMarks", e.target.value)
+                }
+                placeholder="Total Marks"
+                style={{ marginRight: "10px" }}
+                className="mark-obtainer-input"
+              />
+              <div>
+              <button
+                onClick={() => handleAddMarks(index)}
+                disabled={marksData[index]?.added}
+                className="app-main-button-2"
+                
+              >
+                {marksData[index]?.added ? "Marks Added" : "Add Marks"}
+              </button>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

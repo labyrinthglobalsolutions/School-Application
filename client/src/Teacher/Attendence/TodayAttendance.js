@@ -3,7 +3,7 @@ import { Table } from "react-bootstrap";
 import Toast from "../../components/utlis/toast";
 import "./index.css";
 
-const AttendancePage = ({ setActive }) => {
+const TodayAttendancePage = () => {
   const [students, setStudents] = useState([]);
   const [dates, setDates] = useState([]);
   const [attendanceData, setAttendanceData] = useState({});
@@ -102,17 +102,19 @@ const AttendancePage = ({ setActive }) => {
     setSelectedYear(e.target.value);
   };
 
-  const handleAddAttendance = () => {
-    setActive("TodayAttendance");
-  };
+  const date = new Date();
+  const todaysDate = `${date.getDate()}-${
+    date.getMonth() + 1
+  }-${date.getFullYear()}`;
 
-  console.log(dates,"dates")
+  const sendDate = `${date.getFullYear()}-${(date.getMonth() + 1)
+    .toString()
+    .padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")}`;
 
   return (
     <div className="attendance-main-container">
       <h2 className="app-main-heading-2 text-center mt-5 mb-3">Attendance</h2>
-
-      <div className="attendance-sub-container">
+      {/* <div className="attendance-sub-container">
         <div className="attendane-select-monnth-year-container">
           <select
             onChange={handleMonthChange}
@@ -143,57 +145,30 @@ const AttendancePage = ({ setActive }) => {
             <option value={2024}>2024</option>
           </select>
         </div>
-        <div className="d-flex">
-          <button className="app-main-button-2" onClick={handleAddAttendance}>
-            {" "}
-            Add Attendance
-          </button>
-        </div>
-      </div>
+      </div> */}
       <div className="row mt-3">
         <div className="col-md-12">
           <Table striped bordered hover responsive>
             <thead>
               <tr>
                 <th className="attendance-header-text">Student</th>
-                {dates.map((date) => (
-                  <th key={date} className="text-center">
-                    {date.substring(date.lastIndexOf("-") + 1)}
-                  </th>
-                ))}
-                {/* <th className="attendance-header-text">{todaysDate}</th> */}
+                <th className="attendance-header-text">{todaysDate}</th>
               </tr>
             </thead>
             <tbody>
               {students.map((student) => (
                 <tr key={student._id}>
                   <td className="attendance-value-text">{student.fullName}</td>
-                  {dates.map((date) => (
-                    <td key={date} className="attendance-value-text">
-                      <select
-                        onChange={(e) =>
-                          handleStatusChange(student._id, date, e.target.value)
-                        }
-                        value={attendanceData[student._id]?.[date] || ""}
-                        className="attendance-present-absent-select"
-                      >
-                        <option value=""></option>
-                        <option value="Present">P</option>
-                        <option value="Absent">A</option>
-                        <option value="Half Day">H</option>
-                      </select>
-                    </td>
-                  ))}
-                  {/* <td className="attendance-value-text">
+                  <td className="attendance-value-text">
                     <select
                       onChange={(e) =>
                         handleStatusChange(
                           student._id,
-                          todaysDate,
+                          sendDate,
                           e.target.value
                         )
                       }
-                      value={attendanceData[student._id]?.[todaysDate] || ""}
+                      value={attendanceData[student._id]?.[sendDate] || ""}
                       className="attendance-present-absent-select"
                     >
                       <option value=""></option>
@@ -201,7 +176,7 @@ const AttendancePage = ({ setActive }) => {
                       <option value="Absent">Absent</option>
                       <option value="Half Day">Half-day</option>
                     </select>
-                  </td> */}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -212,4 +187,4 @@ const AttendancePage = ({ setActive }) => {
   );
 };
 
-export default AttendancePage;
+export default TodayAttendancePage;

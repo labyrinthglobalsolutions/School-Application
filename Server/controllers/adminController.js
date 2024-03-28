@@ -870,3 +870,71 @@ export const getStudentsWithMarks = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+export const getSubjects = async (req, res) => {
+  try {
+    const subjects = await Subject.find();
+    res.status(200).json({ subjects });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+export const updateStatusOfSubject = CatchAsyncError(async (req, res) => {
+  const { id } = req.params;
+  console.log(id, "kkkkkkkkkkkkkk");
+  const { status } = req.body;
+  console.log(status, "status");
+  try {
+    const subject = await Subject.findByIdAndUpdate(
+      id,
+      { $set: { status } },
+      { new: true }
+    );
+    console.log(subject, "jjjjjjjjjjjj");
+    if (!subject) {
+      return res.status(404).json({ message: "subject not found" });
+    }
+    console.log("updated");
+    res.status(201).json({ message: "subject status updated successfully" });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+});
+
+export const deleteSubject = async (req, res) => {
+  const { id } = req.params;
+  const { active } = req.body;
+  try {
+    const subject = await Subject.findByIdAndUpdate(
+      id,
+      { $set: { active: active, status: false } },
+      { new: true }
+    );
+
+    if (!subject) {
+      return res.status(404).json({ message: "Subject not found" });
+    }
+    return res.status(200).json({ message: "Subject deleted Successfully" });
+  } catch (error) {
+    return res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+export const updateSubjectById = CatchAsyncError(async (req, res) => {
+  console.log("add fee details called");
+  console.log(req.body);
+  try {
+    const { subject } = req.body;
+    const existingFeeDetails = await Subject.findById(req.params.id);
+    if (!existingFeeDetails) {
+      return res.status(404).json({ message: "Subject Details not found" });
+    }
+    existingFeeDetails.subject = subject;
+    const updatedFeeDetails = await existingFeeDetails.save();
+    res.status(201).json({ message: "Subject details updated successfully" });
+  } catch (error) {
+    console.error("Error adding subject details:", error.message);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});

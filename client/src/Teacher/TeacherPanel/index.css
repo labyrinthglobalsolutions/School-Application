@@ -1,3 +1,6 @@
+.super-sidebar-container {
+  flex: 0 0 auto !important; /* Ensure sidebar doesn't shrink or grow */
+}
 .super-sidebar-icons-container {
     margin-top: 26px;
     color: #fff;
@@ -19,7 +22,17 @@
     width: 90% !important;
     margin-left: 5px;
     border-radius: 10px;
-    background-color: #f0f0f0;
+    background-color: #fff;
     color: #004e89;
+  }
+  .collapsed-width{
+    width:90%;
+    height:100vh;
+    overflow-y: scroll;
+  }
+  .not-collapsed-width{
+    width:80%;
+    height:100vh;
+    overflow-y: scroll;
   }
   

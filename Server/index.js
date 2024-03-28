@@ -9,6 +9,7 @@ import ErrorMiddleware from "./middleware/error.js";
 import { parentRouter } from "./routes/parentRoute.js";
 import { teacherRoute } from "./routes/teacherRoute.js";
 import { classTeacherRoute } from "./routes/classTeacherRoute.js";
+import { messageRoute } from "./routes/messagesRoute.js";
 
 dotenv.config();
 
@@ -40,7 +41,8 @@ app.use(
   adminRouter,
   parentRouter,
   teacherRoute,
-  classTeacherRoute
+  classTeacherRoute,
+  messageRoute
 );
 
 app.listen(port, () => {
