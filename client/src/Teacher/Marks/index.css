@@ -1,0 +1,21 @@
+.marks-type-select-option{
+    border:0.5px solid #ddddee;
+    border-radius:4px;
+    padding:4px;
+    cursor:pointer;
+    color:#000;
+    outline:none;
+}
+.select-option{
+    cursor: pointer;
+}
+.mark-obtainer-input{
+    border:0.5px solid #ddddee;
+    border-radius:4px;
+    padding:4px;
+    color:#000;
+    outline:none;
+}
+.marks-add-list-container{
+    width:100%;
+}

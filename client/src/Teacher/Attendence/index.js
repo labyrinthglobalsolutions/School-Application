@@ -111,12 +111,7 @@ const AttendancePage = ({ setActive }) => {
   return (
     <div className="attendance-main-container">
       <h2 className="app-main-heading-2 text-center mt-5 mb-3">Attendance</h2>
-      <div className="w-100 d-flex justify-content-end">
-        <button className="app-main-button-2" onClick={handleAddAttendance}>
-          {" "}
-          Add Attendance
-        </button>
-      </div>
+
       <div className="attendance-sub-container">
         <div className="attendane-select-monnth-year-container">
           <select
@@ -147,6 +142,12 @@ const AttendancePage = ({ setActive }) => {
             <option value={2023}>2023</option>
             <option value={2024}>2024</option>
           </select>
+        </div>
+        <div className="d-flex">
+          <button className="app-main-button-2" onClick={handleAddAttendance}>
+            {" "}
+            Add Attendance
+          </button>
         </div>
       </div>
       <div className="row mt-3">
@@ -208,7 +209,6 @@ const AttendancePage = ({ setActive }) => {
         </div>
       </div>
     </div>
-
   );
 };
 
