@@ -41,11 +41,11 @@ function App() {
 
       <Route path="/adminpannel" element={<AdminPannel />} />
       <Route
-        path="/login"
+        path="/adminlogin"
         element={
-          <AdminProtectedRoute>
-            <AdminLogin />
-          </AdminProtectedRoute>
+          // <AdminProtectedRoute>
+          <AdminLogin />
+          // </AdminProtectedRoute>
         }
       />
 
@@ -55,7 +55,7 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/Terms-and-conditions" element={<Terms />} />
       <Route path="/Privacy-Policy" element={<PrivacyPolicy />} />
-      <Route exact path="/login" element={<Login />} />
+      {/* <Route exact path="/login" element={<Login />} /> */}
       <Route path="/verify" element={<Verify />} />
       <Route path="/signup" element={<Signup />} />
       <Route path="/addsubject" element={<AddSubject />} />
