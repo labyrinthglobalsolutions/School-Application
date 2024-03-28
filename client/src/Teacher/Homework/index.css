@@ -1,0 +1,15 @@
+.date-select-option{
+    border:0.5px solid #ddddee;
+    border-radius:4px;
+    padding:4px;
+    cursor:pointer;
+    color:#000;
+    outline:none;
+}
+.title-input-field{
+    border:0.5px solid #ddddee;
+    border-radius:4px;
+    padding:4px;
+    color:#000;
+    outline:none;
+}

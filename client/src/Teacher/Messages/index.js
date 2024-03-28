@@ -102,11 +102,10 @@ const MessagePage = () => {
 
   return (
     <div>
-      <h2>Student List</h2>
+      <h2 className="app-main-heading-2">Student List</h2>
       <div style={{ display: "flex" }}>
-        <div style={{ flex: 1 }}>
-          <h3>Send Message</h3>
-          <select onChange={onChangeStudent}>
+        <div className="message-send-man-container">
+          <select onChange={onChangeStudent} className="message-send-student-select">
             <option key="" value="">
               Select Student
             </option>
@@ -122,12 +121,14 @@ const MessagePage = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Enter your message"
+            className="message-text-area-box"
+            rows={1}
           />
-          <button onClick={handleSendMessage}>Send Message</button>
+          <button onClick={handleSendMessage} className="app-main-button-2">Send Message</button>
         </div>
       </div>
       <div>
-        <h2>Messages</h2>
+        <h2 className="app-main-heading-4">Messages</h2>
         <ul className="message-list">
           {messages.map((message) => {
             console.log(message.senderId === teacherId);
