@@ -50,6 +50,7 @@ const AdminLogin = () => {
     })
       .then((response) => {
         if (response.status === 200) {
+          console.log(response, "respose");
           response.json().then((data) => {
             Toast.fire({
               icon: "success",

@@ -42,7 +42,7 @@ const Header = () => {
         </NavLink>
         <button
           className="login-desktop-btn"
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/adminlogin")}
         >
           Login
         </button>
