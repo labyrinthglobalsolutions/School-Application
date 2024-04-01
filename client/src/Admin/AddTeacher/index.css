@@ -46,30 +46,30 @@
 }
 
 .teacher-add-button {
-  width: 30%;
+  width: max-content;
   background-color: #293b51;
   color: white;
-  padding: 8px 20px;
+  padding: 8px 32px;
   border: 3px #293b51 solid;
-  border-radius: 10px;
+  border-radius: 24px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
   transition: background-color 0.3s;
-  font-weight: bold;
+  font-weight: 500;
   margin-top: 10px;
 }
 
 @media screen and (max-width: 768px) {
   .teacher-add-button {
-    width: 70%;
+    width: max-content;
     background-color: #293b51;
     color: white;
-    padding: 8px 20px;
+    padding: 8px 32px;
     border: 3px #293b51 solid;
-    border-radius: 10px;
+    border-radius: 24px;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 12px;
     transition: background-color 0.3s;
-    font-weight: bold;
+    font-weight: 500;
   }
 }

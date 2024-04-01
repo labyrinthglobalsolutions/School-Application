@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Toast from "../../components/utlis/toast";
+import notfound from "../../images/not-found.png";
 
 import "./ClassesList.css";
 
@@ -109,24 +110,36 @@ const ClassesList = () => {
         )}
       </div>
       <div>
-        <h1>Classes</h1>
+        {/* <h1 className="app-main-heading-2">Classes</h1> */}
         <div className="classes-add-card-container ">
-          {classes.map((el) => (
+          {classes.length>0 ? (
+            classes.map((el) => (
             <div className="classes-add-card">
               <p className="class-add-class-name">
-                ClassName:{" "}
+                Class :{" "}
                 <span className="class-add-span">{el.className}</span>
               </p>
               <p className="class-add-class-name">
-                SectionName:
+                Section :
                 <span className="class-add-span"> {el.sectionName}</span>
               </p>
               <p className="class-add-class-name">
-                Number Of Periods:
+                No.Of Periods :
                 <span className="class-add-span"> {el.noOfPeriods}</span>
               </p>
             </div>
-          ))}
+          ))):
+          <div className="projects-not-found-container">
+                <h1 className="not-found-text">No Class Found </h1>
+                <img
+                  src={notfound}
+                  alt="No Bills Found"
+                  className="not-found-image"
+                />
+                
+              </div>
+            
+          }
         </div>
       </div>
     </div>

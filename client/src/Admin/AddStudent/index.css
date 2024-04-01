@@ -33,16 +33,15 @@
 }
 
 .add-project-button {
-  width: 30%;
+  width: max-content;
   background-color: #293b51;
   color: white;
-  padding: 8px 20px;
+  padding: 6px 32px;
   border: 3px #293b51 solid;
-  border-radius: 10px;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 14px;
   transition: background-color 0.3s;
-  font-weight: bold;
 }
 .add-project-container {
   display: flex;

@@ -176,7 +176,7 @@ export default function FeeDetailsList({ getFeeDetailsId, addFeeDetails }) {
                   className="not-found-image"
                 />
                 <button className="add-project-button" onClick={addFee}>
-                  Add fee
+                  Add Fee
                 </button>
               </div>
             </>
