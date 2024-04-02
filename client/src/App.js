@@ -14,6 +14,7 @@ import AdminProtectedRoute from "./Admin/AdminProtectedRoute/AdminProtectedRoute
 import AdminPannel from "./Admin/AdminPannel/index.js";
 import PackageExpired from "./Admin/PackageExpied.js";
 import { NotFound } from "./Notfound/index.js";
+import AccountantPannel from "./Accountant/PanelAccountant/index.js";
 
 import "./App.css";
 import OrganizationSignup from "./Admin/OrganizationSignup/OrganizationSignup.js";
@@ -30,6 +31,7 @@ function App() {
   const navigate = useNavigate();
   return (
     <Routes>
+      <Route path="/AccountantPannel" element={<AccountantPannel />} />
       <Route path="/TeacherPanel" element={<TeacherPanel />} />
       <Route path="/ClassSelectionPage" element={<ClassSelectionPage />} />
       <Route

@@ -35,12 +35,14 @@ const AdminLogin = () => {
   // }, oneHour);
 
   const handleSubmit = (e) => {
+    console.log("REACT_APP_FETCH_UR callaed");
     e.preventDefault();
     setError("");
     const jsonData = {
       email: formData.email,
       password: formData.password,
     };
+    console.log(process.env.REACT_APP_FETCH_URL, "REACT_APP_FETCH_UR");
     fetch(`${process.env.REACT_APP_FETCH_URL}/adminlogin`, {
       method: "POST",
       headers: {
@@ -80,7 +82,13 @@ const AdminLogin = () => {
             });
           });
         } else {
-          setError("Login failed");
+          console.log(response);
+          response.json().then((data) => {
+            Toast.fire({
+              icon: "error",
+              title: data.message,
+            });
+          });
         }
       })
       .catch(() => {
