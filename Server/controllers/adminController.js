@@ -1,6 +1,6 @@
 import Student from "../models/studentModel.js";
 import bcrypt from "bcrypt";
-import ErrorHandler from "../utils/errorhandler.js";
+import ErrorHandler from "../utils/ErrorHandler.js";
 import nodemailerConfig from "../utils/nodemailerConfig.js";
 import CatchAsyncError from "../middleware/catchAsyncError.js";
 import Teacher from "../models/TeacherModel.js";
