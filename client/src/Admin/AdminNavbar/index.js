@@ -141,18 +141,18 @@ const AdminNavbar = () => {
         <div className="user-navbar-organization-name-searchbar-main-container">
           <img src={logo} alt="product-logo" className="product-image" />
         </div>
-        <div className="user-navbar-date-main-container">
+        {/* <div className="user-navbar-date-main-container">
           <span>{date.toLocaleTimeString()}</span>
-        </div>
+        </div> */}
 
         <div className="employee-navbar-username-main-container">
-          <button
+          {/* <button
             className="user-navbar-upgrade-btn-main-container"
             onClick={upgradePlan}
           >
             <IoIosRocket />
             <p className="user-navbar-text">Upgrade</p>
-          </button>
+          </button> */}
           <p className="employee-navbar-text">{orgData.responsiblePerson}</p>
 
           <img
