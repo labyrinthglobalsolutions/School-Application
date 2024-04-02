@@ -24,10 +24,11 @@ app.use(express.static("uploads"));
 app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(
-  cors({
-    origin: allowedOrigins,
-    credentials: true,
-  })
+  cors()
+  //   {
+  // origin: allowedOrigins,
+  //   credentials: true,
+  // }
 );
 
 // Example of using express.Router() for API versioning
