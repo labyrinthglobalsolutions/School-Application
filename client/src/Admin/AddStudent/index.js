@@ -39,12 +39,38 @@ function AddStudent() {
     getClasses();
   }, []);
 
+  console.log(data.section, "section");
+
+  // const change = (event) => {
+  //   console.log(event.target.name, "event.target.value");
+  //   setData({
+  //     ...data,
+  //     [event.target.name]: event.target.value,
+  //   });
+
+  // };
+
   const change = (event) => {
+    const { name, value } = event.target;
     setData({
       ...data,
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
+
+    // Update the 'section' field when the 'classID' field changes
+    if (name === "classID") {
+      const selectedClass = classes.find((el) => el.className === value);
+      const defaultSection = selectedClass
+        ? classes.filter((el) => value === el.className)[0].sectionName
+        : "";
+      console.log(defaultSection, "defaultSection");
+      setData((prevData) => ({
+        ...prevData,
+        section: defaultSection,
+      }));
+    }
   };
+  const uniqueClassNames = [...new Set(classes.map((el) => el.className))];
 
   const getClasses = async () => {
     const options = {
@@ -65,6 +91,8 @@ function AddStudent() {
   const filteredSections = classes.filter(
     (el) => data.classID === el.className
   );
+
+  console.log(filteredSections, "filteredSections");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -212,8 +240,10 @@ function AddStudent() {
                 required
               >
                 <option value="">Select Class</option>
-                {classes.map((el) => (
-                  <option value={el.className}>{el.className}</option>
+                {uniqueClassNames.map((className) => (
+                  <option key={className} value={className}>
+                    {className}
+                  </option>
                 ))}
               </Form.Control>
               <Form.Control.Feedback type="invalid">
