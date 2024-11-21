@@ -1,6 +1,6 @@
 import Student from "../models/studentModel.js";
 import bcrypt from "bcrypt";
-import ErrorHandler from "../utils/errorhandler.js";
+import ErrorHandler from "../utils/ErrorHandler.js";
 import nodemailerConfig from "../utils/nodemailerConfig.js";
 import CatchAsyncError from "../middleware/catchAsyncError.js";
 import Teacher from "../models/TeacherModel.js";
@@ -130,7 +130,7 @@ export const AddStudent = CatchAsyncError(async (req, res) => {
       section,
       enrollmentDate,
     } = req.body;
-
+    console.log(req.body);
     // Check if the email already exists in the Student collection
     const existingStudent = await Student.findOne({
       email: email.toLowerCase(),
@@ -572,6 +572,8 @@ export const addClassTeacher = CatchAsyncError(async (req, res, next) => {
   // console.log(req.body);
   try {
     const { classId, section, teacherId } = req.body;
+    console.log(req.body);
+
     // Check if the class teacher already exists
     const existingClassTeacher = await ClassTeacher.findOne({
       class: classId,

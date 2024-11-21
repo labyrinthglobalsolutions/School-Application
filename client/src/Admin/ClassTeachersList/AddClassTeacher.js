@@ -58,7 +58,20 @@ function AddClassTeacher() {
       ...data,
       [name]: value,
     });
+
+    if (name === "classId") {
+      const selectedClass = classes.find((el) => el.className === value);
+      const defaultSection = selectedClass
+        ? classes.filter((el) => value === el.className)[0].sectionName
+        : "";
+      console.log(defaultSection, "defaultSection");
+      setData((prevData) => ({
+        ...prevData,
+        section: defaultSection,
+      }));
+    }
   };
+  console.log(data.section, "section");
 
   const filteredSections = classes.filter(
     (el) => data.classId === el.className
@@ -118,7 +131,8 @@ function AddClassTeacher() {
       });
     }
   };
-
+  const uniqueClassNames = [...new Set(classes.map((el) => el.className))];
+  console.log(uniqueClassNames, "uniqueClassNames");
   return (
     <div className="teacher-add-totalContainer">
       <h2>Add Class Teacher</h2>
@@ -138,8 +152,10 @@ function AddClassTeacher() {
             required
           >
             <option value="">Select Class</option>
-            {classes.map((el) => (
-              <option value={el.className}>{el.className}</option>
+            {uniqueClassNames.map((className) => (
+              <option key={className} value={className}>
+                {className}
+              </option>
             ))}
           </Form.Control>
           <Form.Control.Feedback type="invalid">

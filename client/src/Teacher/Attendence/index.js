@@ -106,7 +106,7 @@ const AttendancePage = ({ setActive }) => {
     setActive("TodayAttendance");
   };
 
-  console.log(dates,"dates")
+  console.log(dates, "dates");
 
   return (
     <div className="attendance-main-container">
@@ -170,7 +170,7 @@ const AttendancePage = ({ setActive }) => {
                   <td className="attendance-value-text">{student.fullName}</td>
                   {dates.map((date) => (
                     <td key={date} className="attendance-value-text">
-                      <select
+                      {/* <select
                         onChange={(e) =>
                           handleStatusChange(student._id, date, e.target.value)
                         }
@@ -181,7 +181,18 @@ const AttendancePage = ({ setActive }) => {
                         <option value="Present">P</option>
                         <option value="Absent">A</option>
                         <option value="Half Day">H</option>
-                      </select>
+                      </select> */}
+
+                      <input
+                        readOnly
+                        value={
+                          attendanceData[student._id]?.[date]
+                            ? attendanceData[student._id]?.[date].split("")[0]
+                            : ""
+                        }
+                        style={{ width: "30px" }}
+                        className="attendance-present-absent-select"
+                      />
                     </td>
                   ))}
                   {/* <td className="attendance-value-text">

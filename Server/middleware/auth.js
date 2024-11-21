@@ -1,5 +1,5 @@
 import CatchAsyncError from "./catchAsyncError.js";
-import ErrorHandler from "../utils/errorhandler.js";
+import ErrorHandler from "../utils/ErrorHandler.js";
 import jwt from "jsonwebtoken";
 import Parent from "../models/parentModel.js";
 import Teacher from "../models/TeacherModel.js";
